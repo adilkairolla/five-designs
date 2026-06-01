@@ -723,11 +723,17 @@ code {
 }
 
 .project-frame iframe {
-  width: 1280px;
-  height: 800px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Inverse-scale trick: width × scale = 100%, so the shrunk page always
+     fills the frame regardless of card width (effective scale = w/1280).
+     The embedded page renders in a 16/10 logical viewport ~3× the card. */
+  width: 300%;
+  height: 300%;
   border: 0;
   pointer-events: none;
-  transform: scale(0.305);
+  transform: scale(0.33333);
   transform-origin: top left;
 }
 
@@ -961,12 +967,6 @@ code {
   .omni-launcher {
     right: 12px;
     bottom: 12px;
-  }
-}
-
-@media (max-width: 560px) {
-  .project-frame iframe {
-    transform: scale(0.235);
   }
 }
 
