@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-caveat: "Caveat", cursive;
+  --font-kalam: "Kalam", cursive;
+  --font-playfair: "Playfair Display", serif;
+  --font-mono: "Space Mono", monospace;
+  --font-pixel: "Press Start 2P", monospace;
+  --font-vt323: "VT323", monospace;
+  --font-archivo: "Archivo Black", sans-serif;
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-major: "Major Mono Display", monospace;
+  --font-syne: "Syne", sans-serif;
+  --font-dm-serif: "DM Serif Display", serif;
+  --font-instrument: "Instrument Sans", sans-serif;
+  --font-fraunces: "Fraunces", serif;
+  --font-sora: "Sora", sans-serif;
+  --font-bricolage: "Bricolage Grotesque", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}

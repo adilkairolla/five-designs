@@ -1,0 +1,4 @@
+.d4-nav {
+  background: linear-gradient(to bottom, rgba(11, 17, 33, 0.95), rgba(11, 17, 33, 0));
+  backdrop-filter: blur(12px);
+}

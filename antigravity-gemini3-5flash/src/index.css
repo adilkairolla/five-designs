@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  /* Fonts */
+  --font-brutalist-sans: "Bricolage Grotesque", sans-serif;
+  --font-brutalist-display: "Syne", sans-serif;
+  --font-cozy-serif: "Fraunces", serif;
+  --font-cozy-display: "Cormorant Garamond", serif;
+  --font-swiss-sans: "Plus Jakarta Sans", sans-serif;
+  --font-cyber-mono: "Fira Code", monospace;
+
+  /* Keyframe Animations */
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: currentColor; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+  }
+  @keyframes mesh-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes grid-move {
+    0% { background-position: 0 0; }
+    100% { background-position: 40px 40px; }
+  }
+
+  /* Utility Animations */
+  --animate-scanline: scanline 8s linear infinite;
+  --animate-blink-caret: blink-caret .75s step-end infinite;
+  --animate-float-slow: float 6s ease-in-out infinite;
+  --animate-mesh: mesh-flow 15s ease infinite;
+  --animate-grid-move: grid-move 20s linear infinite;
+}
+
+/* Custom CSS Scrollbar and styling utilities */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.5);
+}
+
+.glow-cyan {
+  text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+}
+.glow-green {
+  text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+}
+.glow-box-cyan {
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.25);
+}
+
+/* Custom Gradients for design 5 mesh */
+.gradient-mesh {
+  background: linear-gradient(135deg, #1e1b4b 0%, #311042 25%, #4c0519 50%, #030712 100%);
+  background-size: 400% 400%;
+}

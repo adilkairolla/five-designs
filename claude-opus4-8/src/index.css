@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ── Font tokens shared by all designs (each design uses its own subset) ── */
+@theme {
+  --font-fraunces: "Fraunces", "Times New Roman", serif;
+  --font-newsreader: "Newsreader", Georgia, serif;
+  --font-chakra: "Chakra Petch", ui-sans-serif, sans-serif;
+  --font-jetbrains: "JetBrains Mono", ui-monospace, monospace;
+  --font-plex: "IBM Plex Sans", ui-sans-serif, sans-serif;
+  --font-instrument: "Instrument Serif", Georgia, serif;
+  --font-hanken: "Hanken Grotesk", ui-sans-serif, sans-serif;
+  --font-anton: "Anton", Impact, sans-serif;
+  --font-archivo: "Archivo", ui-sans-serif, sans-serif;
+  --font-space-mono: "Space Mono", ui-monospace, monospace;
+  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+  --font-manrope: "Manrope", ui-sans-serif, sans-serif;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+}
+
+/* Each design renders inside a full-bleed wrapper; reset any inherited link color. */
+a {
+  color: inherit;
+}

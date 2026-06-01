@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-playfair: "Playfair Display", serif;
+  --font-source-serif: "Source Serif 4", serif;
+  --font-sora: "Sora", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+  --font-cormorant: "Cormorant Garamond", serif;
+  --font-karla: "Karla", sans-serif;
+  --font-baskerville: "Libre Baskerville", serif;
+  --font-elite: "Special Elite", monospace;
+  --font-crimson: "Crimson Pro", serif;
+  --font-orbitron: "Orbitron", sans-serif;
+  --font-jetbrains: "JetBrains Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes inkSpread {
+  0% { clip-path: circle(0% at 50% 50%); }
+  100% { clip-path: circle(100% at 50% 50%); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: currentColor; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}
+
+@keyframes glitch1 {
+  0%, 100% { clip-path: inset(40% 0 61% 0); transform: translate(-2px, 2px); }
+  20% { clip-path: inset(92% 0 1% 0); transform: translate(1px, -1px); }
+  40% { clip-path: inset(43% 0 1% 0); transform: translate(-1px, 3px); }
+  60% { clip-path: inset(25% 0 58% 0); transform: translate(3px, 1px); }
+  80% { clip-path: inset(54% 0 7% 0); transform: translate(-3px, -2px); }
+}
+
+@keyframes glitch2 {
+  0%, 100% { clip-path: inset(25% 0 58% 0); transform: translate(2px, -2px); }
+  20% { clip-path: inset(54% 0 7% 0); transform: translate(-1px, 2px); }
+  40% { clip-path: inset(40% 0 61% 0); transform: translate(1px, -3px); }
+  60% { clip-path: inset(92% 0 1% 0); transform: translate(-3px, -1px); }
+  80% { clip-path: inset(43% 0 1% 0); transform: translate(3px, 2px); }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes neonPulse {
+  0%, 100% { opacity: 1; text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 40px currentColor; }
+  50% { opacity: 0.8; text-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 20px currentColor; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes revealLine {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.05); opacity: 0.6; }
+}

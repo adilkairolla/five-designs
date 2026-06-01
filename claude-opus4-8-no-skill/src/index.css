@@ -1,0 +1,137 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ------------------------------------------------------------------ */
+/*  Ratio Reader — shared design tokens                                */
+/*  Fonts are loaded in index.html. Each landing page picks the        */
+/*  families that fit its art direction via the font-* utilities.      */
+/* ------------------------------------------------------------------ */
+@theme {
+  --font-fraunces: "Fraunces", "Georgia", serif;
+  --font-newsreader: "Newsreader", "Georgia", serif;
+  --font-grotesk: "Space Grotesk", "Inter", sans-serif;
+  --font-space-mono: "Space Mono", "JetBrains Mono", monospace;
+  --font-sora: "Sora", "Inter", sans-serif;
+  --font-inter: "Inter", system-ui, sans-serif;
+  --font-fredoka: "Fredoka", "Inter", sans-serif;
+  --font-jakarta: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-plex-mono: "IBM Plex Mono", "Space Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Shared keyframe library                                            */
+/* ------------------------------------------------------------------ */
+
+@keyframes rr-float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-24px) translateX(12px); }
+}
+
+@keyframes rr-float-slow {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-40px) scale(1.05); }
+}
+
+@keyframes rr-aurora {
+  0% { transform: translate(0%, 0%) rotate(0deg); }
+  33% { transform: translate(8%, -6%) rotate(40deg); }
+  66% { transform: translate(-6%, 8%) rotate(-30deg); }
+  100% { transform: translate(0%, 0%) rotate(0deg); }
+}
+
+@keyframes rr-gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes rr-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes rr-marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes rr-blob {
+  0%, 100% { border-radius: 42% 58% 63% 37% / 41% 44% 56% 59%; }
+  33% { border-radius: 67% 33% 47% 53% / 37% 62% 38% 63%; }
+  66% { border-radius: 38% 62% 56% 44% / 63% 38% 62% 37%; }
+}
+
+@keyframes rr-fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rr-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes rr-spin-slow {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rr-pulse-ring {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  70% { transform: scale(1.3); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes rr-sweep {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+@keyframes rr-bob {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes rr-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Animation utility classes (available to every design) */
+.animate-rr-float { animation: rr-float 7s ease-in-out infinite; }
+.animate-rr-float-slow { animation: rr-float-slow 11s ease-in-out infinite; }
+.animate-rr-aurora { animation: rr-aurora 22s ease-in-out infinite; }
+.animate-rr-gradient { background-size: 200% 200%; animation: rr-gradient-shift 8s ease infinite; }
+.animate-rr-marquee { animation: rr-marquee 26s linear infinite; }
+.animate-rr-marquee-rev { animation: rr-marquee-reverse 30s linear infinite; }
+.animate-rr-blob { animation: rr-blob 14s ease-in-out infinite; }
+.animate-rr-fade-up { animation: rr-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-rr-fade-in { animation: rr-fade-in 1.2s ease both; }
+.animate-rr-spin-slow { animation: rr-spin-slow 26s linear infinite; }
+.animate-rr-bob { animation: rr-bob 5s ease-in-out infinite; }
+.animate-rr-sweep { animation: rr-sweep 1.1s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-rr-pulse-ring { animation: rr-pulse-ring 2.4s ease-out infinite; }
+.animate-rr-shimmer {
+  background-size: 200% 100%;
+  animation: rr-shimmer 2.6s linear infinite;
+}
+
+/* Paper grain texture — used by editorial / playful designs */
+.rr-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+}
+
+/* Reduced-motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

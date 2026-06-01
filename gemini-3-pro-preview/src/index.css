@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;600&family=Nunito:wght@400;600;800&family=Orbitron:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;400;600&family=Share+Tech+Mono&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  --font-academic-heading: "Playfair Display", serif;
+  --font-academic-body: "Lato", sans-serif;
+  
+  --font-cyber-heading: "Orbitron", sans-serif;
+  --font-cyber-mono: "Share Tech Mono", monospace;
+  
+  --font-brutal-heading: "Anton", sans-serif;
+  --font-brutal-body: "Archivo Black", sans-serif;
+  
+  --font-soft-heading: "Nunito", sans-serif;
+  --font-soft-body: "Quicksand", sans-serif;
+  
+  --font-editorial-heading: "Cormorant Garamond", serif;
+  --font-editorial-body: "Montserrat", sans-serif;
+}

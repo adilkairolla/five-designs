@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Custom Font Variables */
+:root {
+  --font-playfair: 'Playfair Display', serif;
+  --font-space-mono: 'Space Mono', monospace;
+  --font-cormorant: 'Cormorant Garamond', serif;
+  --font-dm-sans: 'DM Sans', sans-serif;
+  --font-syne: 'Syne', sans-serif;
+}
+
+/* Design 1: Brutalist/Academic */
+.design-1 {
+  --bg-color: #f5f5f0;
+  --text-color: #1a1a1a;
+  --accent-color: #ff3333;
+  --border-color: #1a1a1a;
+  font-family: var(--font-space-mono);
+}
+
+/* Design 2: Neo-Glassmorphism */
+.design-2 {
+  --bg-color: #0a0a1a;
+  --text-color: #e8e8f0;
+  --accent-color: #00d4ff;
+  --accent-secondary: #ff00a0;
+  font-family: var(--font-dm-sans);
+}
+
+/* Design 3: Editorial Magazine */
+.design-3 {
+  --bg-color: #faf9f6;
+  --text-color: #2c2c2c;
+  --accent-color: #c41e3a;
+  --accent-gold: #d4af37;
+  font-family: var(--font-cormorant);
+}
+
+/* Design 4: Cyberpunk Terminal */
+.design-4 {
+  --bg-color: #050505;
+  --text-color: #00ff41;
+  --accent-color: #ff0080;
+  --accent-cyan: #00ffff;
+  font-family: var(--font-space-mono);
+}
+
+/* Design 5: Organic Soft */
+.design-5 {
+  --bg-color: #fef9f3;
+  --text-color: #3d3d3d;
+  --accent-color: #e07a5f;
+  --accent-sage: #81b29a;
+  --accent-cream: #f2cc8f;
+  font-family: var(--font-dm-sans);
+}

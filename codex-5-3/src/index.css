@@ -1,0 +1,59 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  color-scheme: light dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+}
+
+.font-editorial {
+  font-family: "Playfair Display", serif;
+}
+
+.font-body {
+  font-family: "DM Sans", sans-serif;
+}
+
+.font-tech {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.font-mono {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.font-serif-soft {
+  font-family: "Fraunces", serif;
+}
+
+.font-poster {
+  font-family: "Alfa Slab One", serif;
+}
+
+.font-sans-alt {
+  font-family: "Sora", sans-serif;
+}
+
+.font-luxe {
+  font-family: "Cinzel", serif;
+}
+
+.scanlines {
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(125, 164, 255, 0.12) 50%,
+    transparent 100%
+  );
+  background-size: 100% 5px;
+}
