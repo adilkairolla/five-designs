@@ -14,6 +14,7 @@ import {
   ComputerIcon,
   ComputerVideoIcon,
   GalleryHorizontalEndIcon as HugeGalleryHorizontalEndIcon,
+  GithubIcon as HugeGithubIcon,
   InformationCircleIcon,
   Layers02Icon,
   Loading03Icon,
@@ -62,6 +63,8 @@ export const CircleAlertIcon = createIcon(HugeAlertCircleIcon)
 export const CircleCheckIcon = createIcon(HugeCircleCheckIcon)
 export const GalleryHorizontalEnd = createIcon(HugeGalleryHorizontalEndIcon)
 export const GalleryHorizontalEndIcon = GalleryHorizontalEnd
+export const Github = createIcon(HugeGithubIcon)
+export const GithubIcon = Github
 export const InfoIcon = createIcon(InformationCircleIcon)
 export const Layers3 = createIcon(Layers02Icon)
 export const Loader2Icon = createIcon(Loading03Icon)

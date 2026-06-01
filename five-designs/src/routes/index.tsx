@@ -1,12 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { motion } from "motion/react"
 import { useMemo, useState } from "react"
-import {
-  ArrowDown,
-  ArrowUpRight,
-  ChevronDownIcon,
-  MonitorPlay,
-} from "#/components/ui/icons"
+import { ArrowUpRight, ChevronDownIcon, MonitorPlay } from "#/components/ui/icons"
 
 import { Button } from "#/components/ui/button"
 import { briefPrompt, briefTeaser, productName } from "#/data/brief"
@@ -80,16 +75,7 @@ function App() {
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <Button render={<a href="#index" />} size="lg">
-                <ArrowDown data-icon="inline-start" />
                 Browse the {runCount} runs
-              </Button>
-              <Button
-                render={<a href="https://adilkairolla.dev/five-designs" />}
-                size="lg"
-                variant="ghost"
-              >
-                adilkairolla.dev/five-designs
-                <ArrowUpRight data-icon="inline-end" />
               </Button>
             </div>
           </div>
@@ -98,7 +84,7 @@ function App() {
         </motion.div>
 
         {/* ── Datasheet ──────────────────────────────────────── */}
-        <dl className="datasheet mt-7 md:mt-9">
+        <dl className="datasheet mt-12 md:mt-16">
           <Stat figure={runCount} label="tool + model runs" />
           <Stat figure={toolCount} label="generation tools" />
           <Stat figure={designCount} label="designs generated" />

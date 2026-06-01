@@ -1,8 +1,11 @@
 import { Link } from "@tanstack/react-router"
-import { Layers3 } from "#/components/ui/icons"
+import { Github, Layers3 } from "#/components/ui/icons"
+import { Button } from "#/components/ui/button"
 import { projects } from "#/data/projects"
 
 import ThemeToggle from "./ThemeToggle"
+
+const REPO_URL = "https://github.com/adilkairolla/five-designs"
 
 export default function Header() {
   return (
@@ -25,6 +28,17 @@ export default function Header() {
           <span className="hidden font-mono text-xs text-muted-foreground sm:inline">
             {projects.length} runs
           </span>
+          <Button
+            render={
+              <a href={REPO_URL} target="_blank" rel="noreferrer" />
+            }
+            size="icon"
+            variant="outline"
+            aria-label="View source on GitHub"
+            title="View source on GitHub"
+          >
+            <Github />
+          </Button>
           <ThemeToggle />
         </div>
       </nav>
