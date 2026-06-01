@@ -11,6 +11,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const showcaseRoot = path.resolve(__dirname, "..")
 const experimentsRoot = path.resolve(showcaseRoot, "..")
 const projectsFile = path.join(showcaseRoot, "src", "data", "projects.ts")
+const createdAtOverrides = new Map<string, string>([
+  // This folder was touched later than the actual run. Keep the recorded run
+  // date based on the project source timestamps.
+  ["opencode-glm5-1", "2026-03-29T16:25:16+05:00"],
+])
 
 const source = await Bun.file(projectsFile).text()
 const projects = readProjects(source)
@@ -22,6 +27,13 @@ if (!projects.length) {
 const createdAtBySlug = new Map<string, string>()
 
 for (const project of projects) {
+  const override = createdAtOverrides.get(project.slug)
+
+  if (override) {
+    createdAtBySlug.set(project.slug, override)
+    continue
+  }
+
   const info = await stat(path.join(experimentsRoot, project.folder))
   createdAtBySlug.set(project.slug, formatLocalDateTime(info.mtime))
 }
