@@ -24,9 +24,11 @@ const STORAGE_KEY = "five-designs:controls-collapsed"
 function ProjectPreview() {
   const { slug } = Route.useParams()
   const index = projects.findIndex((project) => project.slug === slug)
-  const project = projects[index] ?? projects[0]
-  const previous = projects[(index - 1 + projects.length) % projects.length]
-  const next = projects[(index + 1) % projects.length]
+  const projectIndex = index >= 0 ? index : 0
+  const project = projects[projectIndex]
+  const previous =
+    projects[(projectIndex - 1 + projects.length) % projects.length]
+  const next = projects[(projectIndex + 1) % projects.length]
   const [activeDesignIndex, setActiveDesignIndex] = useState(0)
 
   // Collapsed/expanded state, persisted like a devtools panel.
@@ -56,7 +58,7 @@ function ProjectPreview() {
     return null
   }
 
-  const exhibit = String(index + 1).padStart(2, "0")
+  const exhibit = String(projectIndex + 1).padStart(2, "0")
   const activeDesignNumber = activeDesignIndex + 1
   const frameUrl = projectDesignUrl(project, activeDesignNumber)
 

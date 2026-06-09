@@ -65,6 +65,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-05-28T23:12:30+05:00",
   },
   {
+    slug: "claude-fable5",
+    folder: "claude-fable5",
+    tool: "Claude",
+    model: "Claude Fable 5",
+    labels: [
+      "Marginalia",
+      "The Machine",
+      "Swiss Ratio",
+      "Night Library",
+      "Pop Reader",
+    ],
+    createdAt: "2026-06-09T22:31:38+05:00",
+  },
+  {
     slug: "claude-sonnet4-6",
     folder: "claude-sonnet4-6",
     tool: "Claude",
