@@ -183,6 +183,14 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-05-02T10:41:53+05:00",
   },
   {
+    slug: "opencode-kimi2-7",
+    folder: "opencode-kimi2-7",
+    tool: "Opencode",
+    model: "Kimi K2.7",
+    labels: ["Design 1", "Design 2", "Design 3", "Design 4", "Design 5"],
+    createdAt: "2026-06-12T20:12:17+05:00",
+  },
+  {
     slug: "opencode-laguna-m-1",
     folder: "opencode-laguna-m-1",
     tool: "Opencode",

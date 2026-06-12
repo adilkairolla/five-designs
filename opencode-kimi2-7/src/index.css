@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-editorial-display: "Playfair Display", serif;
+  --font-editorial-body: "Source Serif 4", serif;
+  --font-brutalist-display: "Archivo Black", sans-serif;
+  --font-brutalist-body: "JetBrains Mono", monospace;
+  --font-organic-display: "Cormorant", serif;
+  --font-organic-body: "Quattrocento Sans", sans-serif;
+  --font-terminal-display: "VT323", monospace;
+  --font-terminal-body: "Share Tech Mono", monospace;
+  --font-deco-display: "Cinzel Decorative", serif;
+  --font-deco-body: "Marcellus", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(0, 0, 0, 0.12);
+}
