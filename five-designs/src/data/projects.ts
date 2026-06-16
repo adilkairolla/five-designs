@@ -151,6 +151,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-03-29T16:25:16+05:00",
   },
   {
+    slug: "opencode-glm5-2",
+    folder: "opencode-glm5-2",
+    tool: "Opencode",
+    model: "GLM 5.2",
+    labels: [
+      "The Broadsheet",
+      "Swiss Concrete",
+      "Margin Notes",
+      "Terminal 1985",
+      "Gilded Page",
+    ],
+    createdAt: "2026-06-17T00:37:09+05:00",
+  },
+  {
     slug: "opencode-grok4-3",
     folder: "opencode-grok4-3",
     tool: "Opencode",
