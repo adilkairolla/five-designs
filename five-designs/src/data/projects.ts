@@ -127,6 +127,14 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-04-24T12:09:34+05:00",
   },
   {
+    slug: "opencode-fugu-ultra",
+    folder: "opencode-fugu-ultra",
+    tool: "Opencode",
+    model: "Fugu Ultra",
+    labels: ["Editorial", "Terminal", "Botanical", "Brutalist", "Cosmic"],
+    createdAt: "2026-06-24T12:09:39+05:00",
+  },
+  {
     slug: "opencode-gemini3-1pro",
     folder: "opencode-gemini3-1pro",
     tool: "Opencode",
