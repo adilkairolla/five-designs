@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  /* Design 1 — Field Notes (editorial) */
+  --font-display-editorial: "Fraunces", "ui-serif", "Georgia", serif;
+  --font-body-editorial: "Newsreader", "ui-serif", "Georgia", serif;
+
+  /* Design 2 — Blueprint (technical) */
+  --font-display-technical: "IBM Plex Mono", "ui-monospace", monospace;
+  --font-body-technical: "IBM Plex Sans", "ui-sans-serif", sans-serif;
+  --font-label-technical: "IBM Plex Sans Condensed", "ui-sans-serif", sans-serif;
+
+  /* Design 3 — Golden Section (swiss) */
+  --font-display-swiss: "Neue Montreal", "Helvetica Neue", "Arial", sans-serif;
+
+  /* Design 4 — Desk Scraps (playful) */
+  --font-display-playful: "Bricolage Grotesque", "ui-sans-serif", sans-serif;
+  --font-hand-playful: "Caveat", "cursive";
+
+  /* Design 5 — Aurora (ambient) */
+  --font-display-aurora: "Clash Display", "ui-sans-serif", sans-serif;
+  --font-body-aurora: "Satoshi", "ui-sans-serif", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  min-height: 100vh;
+}

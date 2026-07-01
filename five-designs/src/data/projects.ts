@@ -65,6 +65,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-05-28T23:12:30+05:00",
   },
   {
+    slug: "claude-sonnet-5",
+    folder: "claude-sonnet-5",
+    tool: "Claude",
+    model: "Claude Sonnet 5",
+    labels: [
+      "Field Notes",
+      "Blueprint",
+      "Golden Section",
+      "Desk Scraps",
+      "Aurora",
+    ],
+    createdAt: "2026-07-01T14:22:53+05:00",
+  },
+  {
     slug: "claude-fable5",
     folder: "claude-fable5",
     tool: "Claude",
