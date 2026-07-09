@@ -24,7 +24,9 @@ import {
   PanelLeftIcon as HugePanelLeftIcon,
   PlusSignIcon,
   Search01Icon,
+  SmartPhone01Icon,
   SunIcon as HugeSunIcon,
+  Tablet01Icon,
   type IconSvgElement,
 } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon, type HugeiconsIconProps } from "@hugeicons/react"
@@ -78,6 +80,10 @@ export const MoreHorizontalIcon = MoreHorizontal
 export const PanelLeftIcon = createIcon(HugePanelLeftIcon)
 export const PlusIcon = createIcon(PlusSignIcon)
 export const SearchIcon = createIcon(Search01Icon)
+export const Smartphone = createIcon(SmartPhone01Icon)
+export const SmartphoneIcon = Smartphone
 export const Sun = createIcon(HugeSunIcon)
+export const Tablet = createIcon(Tablet01Icon)
+export const TabletIcon = Tablet
 export const TriangleAlertIcon = createIcon(AlertIcon)
 export const XIcon = createIcon(Cancel01Icon)

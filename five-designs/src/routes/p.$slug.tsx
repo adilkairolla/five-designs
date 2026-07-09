@@ -7,6 +7,9 @@ import {
   ChevronRight,
   ChevronUpIcon,
   Layers3,
+  Monitor,
+  Smartphone,
+  Tablet,
   XIcon,
 } from "#/components/ui/icons"
 
@@ -21,6 +24,18 @@ export const Route = createFileRoute("/p/$slug")({
 
 const STORAGE_KEY = "five-designs:controls-collapsed"
 
+type PreviewViewport = "desktop" | "tablet" | "mobile"
+
+const previewViewportOptions = [
+  { value: "desktop", label: "Desktop", Icon: Monitor },
+  { value: "tablet", label: "Tablet", Icon: Tablet },
+  { value: "mobile", label: "Mobile", Icon: Smartphone },
+] satisfies Array<{
+  value: PreviewViewport
+  label: string
+  Icon: typeof Monitor
+}>
+
 function ProjectPreview() {
   const { slug } = Route.useParams()
   const index = projects.findIndex((project) => project.slug === slug)
@@ -30,6 +45,8 @@ function ProjectPreview() {
     projects[(projectIndex - 1 + projects.length) % projects.length]
   const next = projects[(projectIndex + 1) % projects.length]
   const [activeDesignIndex, setActiveDesignIndex] = useState(0)
+  const [previewViewport, setPreviewViewport] =
+    useState<PreviewViewport>("desktop")
 
   // Collapsed/expanded state, persisted like a devtools panel.
   const [collapsed, setCollapsed] = useState(false)
@@ -98,6 +115,35 @@ function ProjectPreview() {
             </div>
 
             <div className="omni-right">
+              <div
+                className="preview-viewport-controls"
+                role="group"
+                aria-label="Preview viewport"
+              >
+                {previewViewportOptions.map((option) => {
+                  const Icon = option.Icon
+
+                  return (
+                    <Button
+                      key={option.value}
+                      variant={
+                        previewViewport === option.value
+                          ? "secondary"
+                          : "outline"
+                      }
+                      size="sm"
+                      onClick={() => setPreviewViewport(option.value)}
+                      aria-label={`View as ${option.label.toLowerCase()}`}
+                      aria-pressed={previewViewport === option.value}
+                      title={`View as ${option.label.toLowerCase()}`}
+                    >
+                      <Icon data-icon="inline-start" />
+                      <span>{option.label}</span>
+                    </Button>
+                  )
+                })}
+              </div>
+
               <label className="sr-only" htmlFor="project-switcher">
                 Switch project
               </label>
@@ -184,12 +230,14 @@ function ProjectPreview() {
         </>
       )}
 
-      <section className="embedded-stage">
-        <iframe
-          title={`${project.tool} ${project.model} ${project.labels[activeDesignIndex]}`}
-          src={frameUrl}
-          sandbox="allow-forms allow-popups allow-same-origin allow-scripts"
-        />
+      <section className="embedded-stage" data-viewport={previewViewport}>
+        <div className="embedded-frame-shell">
+          <iframe
+            title={`${project.tool} ${project.model} ${project.labels[activeDesignIndex]}`}
+            src={frameUrl}
+            sandbox="allow-forms allow-popups allow-same-origin allow-scripts"
+          />
+        </div>
       </section>
 
       {collapsed && (

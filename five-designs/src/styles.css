@@ -831,6 +831,20 @@ code {
   font-weight: 500;
 }
 
+.preview-viewport-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 2px);
+  background: color-mix(in oklab, var(--card) 78%, transparent);
+  padding: 3px;
+}
+
+.preview-viewport-controls [data-slot="button"] {
+  border-radius: var(--radius);
+}
+
 /* ── Floating launcher (collapsed control bar) ─────────── */
 .omni-launcher {
   position: fixed;
@@ -879,6 +893,17 @@ code {
   min-height: 0;
   flex-direction: column;
   background: #0d0d0c;
+}
+
+.embedded-frame-shell {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  transition:
+    width 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .embedded-title {
@@ -931,12 +956,43 @@ code {
   color: white;
 }
 
-.embedded-stage iframe {
+.embedded-frame-shell iframe {
   width: 100%;
   flex: 1;
   min-height: 0;
   border: 0;
   background: white;
+}
+
+.embedded-stage[data-viewport="tablet"],
+.embedded-stage[data-viewport="mobile"] {
+  align-items: center;
+  padding: 18px;
+  overflow: auto;
+}
+
+.embedded-stage[data-viewport="tablet"] .embedded-frame-shell,
+.embedded-stage[data-viewport="mobile"] .embedded-frame-shell {
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.34);
+}
+
+.embedded-stage[data-viewport="tablet"] .embedded-frame-shell {
+  width: min(834px, 100%);
+  max-width: min(834px, 100%);
+  height: min(1112px, calc(100vh - 178px));
+  min-height: 640px;
+}
+
+.embedded-stage[data-viewport="mobile"] .embedded-frame-shell {
+  width: min(390px, 100%);
+  max-width: min(390px, 100%);
+  height: min(844px, calc(100vh - 178px));
+  min-height: 620px;
 }
 
 @media (max-width: 640px) {
@@ -949,6 +1005,10 @@ code {
     flex: 1 1 auto;
     width: auto;
     min-width: 0;
+  }
+
+  .preview-viewport-controls {
+    display: none;
   }
 
   .embedded-title {
@@ -967,6 +1027,26 @@ code {
   .omni-launcher {
     right: 12px;
     bottom: 12px;
+  }
+
+  .embedded-stage,
+  .embedded-stage[data-viewport="tablet"],
+  .embedded-stage[data-viewport="mobile"] {
+    align-items: stretch;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .embedded-frame-shell,
+  .embedded-stage[data-viewport="tablet"] .embedded-frame-shell,
+  .embedded-stage[data-viewport="mobile"] .embedded-frame-shell {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    flex: 1 1 auto;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 }
 

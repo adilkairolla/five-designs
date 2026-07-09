@@ -195,6 +195,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-05-02T12:07:49+05:00",
   },
   {
+    slug: "opencode-grok4-5",
+    folder: "opencode-grok4-5",
+    tool: "Opencode",
+    model: "Grok 4.5",
+    labels: [
+      "Parchment & Vermilion",
+      "Phosphor Desk",
+      "Power Ratio",
+      "Clay Reading Room",
+      "Gilded Vault",
+    ],
+    createdAt: "2026-07-09T14:47:57+05:00",
+  },
+  {
     slug: "opencode-katcoderprov2",
     folder: "opencode-katcoderprov2",
     tool: "Opencode",
