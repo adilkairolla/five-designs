@@ -125,6 +125,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-04-24T10:27:25+05:00",
   },
   {
+    slug: "codex-5-6-sol",
+    folder: "codex-5-6-sol",
+    tool: "Codex",
+    model: "GPT-5.6 Sol (xhigh)",
+    labels: [
+      "Editorial Atlas",
+      "Signal Grid",
+      "Paper Trail",
+      "Big Idea",
+      "Wayfinder",
+    ],
+    createdAt: "2026-07-09T23:15:47+05:00",
+  },
+  {
     slug: "gemini-3-pro-preview",
     folder: "gemini-3-pro-preview",
     tool: "Gemini",
