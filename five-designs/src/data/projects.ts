@@ -255,6 +255,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-06-12T20:12:17+05:00",
   },
   {
+    slug: "opencode-kimi-3",
+    folder: "opencode-kimi-3",
+    tool: "Opencode",
+    model: "Kimi K3",
+    labels: [
+      "The Broadsheet",
+      "RATIO://OS",
+      "Skim Smart",
+      "RATIO—READER",
+      "The Distillation",
+    ],
+    createdAt: "2026-07-17T03:32:17+05:00",
+  },
+  {
     slug: "opencode-laguna-m-1",
     folder: "opencode-laguna-m-1",
     tool: "Opencode",
