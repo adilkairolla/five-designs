@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  /* Design 1 — proofsheet */
+  --font-bodoni: "Bodoni Moda", "Times New Roman", serif;
+  --font-newsreader: "Newsreader", Georgia, serif;
+  --font-courier: "Courier Prime", "Courier New", monospace;
+
+  /* Design 2 — blueprint */
+  --font-saira: "Saira Condensed", "Arial Narrow", sans-serif;
+  --font-plex: "IBM Plex Sans", system-ui, sans-serif;
+  --font-plexmono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Design 3 — risograph */
+  --font-bricolage: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-karla: "Karla", system-ui, sans-serif;
+  --font-martian: "Martian Mono", ui-monospace, monospace;
+
+  /* Design 4 — atlas */
+  --font-marcellus: "Marcellus", "Times New Roman", serif;
+  --font-jost: "Jost", system-ui, sans-serif;
+
+  /* Design 5 — nocturne */
+  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+  --font-spectral: "Spectral", Georgia, serif;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+}
+
+/* Each design owns its palette, selection colour and motion inside its own
+   scoped stylesheet, so the five pages never leak into one another. */
