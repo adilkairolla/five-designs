@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,soft,wght@9..144,0..1,0..100,400..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&family=Newsreader:opsz,ital,wght@6..72,0..1,200..800&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&family=Bricolage+Grotesque:wght@400;600;700;800&family=Gambarino&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+* { scrollbar-width: thin; }
+html { scroll-behavior: smooth; }
