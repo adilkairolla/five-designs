@@ -355,6 +355,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-05-21T22:26:18+05:00",
   },
   {
+    slug: "opencode-qwen3-8max",
+    folder: "opencode-qwen3-8max",
+    tool: "Opencode",
+    model: "Qwen3.8 Max",
+    labels: [
+      "Manuscript Noir",
+      "Ratio Glass",
+      "Zine Brut",
+      "Terminal Decode",
+      "New Editorial",
+    ],
+    createdAt: "2026-08-10T12:52:01+05:00",
+  },
+  {
     slug: "opencode-ring2-6-1t",
     folder: "opencode-ring2-6-1t",
     tool: "Opencode",
