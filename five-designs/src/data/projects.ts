@@ -155,6 +155,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-02-05T06:38:17+05:00",
   },
   {
+    slug: "opencode-deekseek4-flash-0731",
+    folder: "opencode-deekseek4-flash-0731",
+    tool: "Opencode",
+    model: "DeepSeek V4 Flash 0731",
+    labels: [
+      "The Daily Ratio",
+      "Reading Lab",
+      "Wake-Up Call",
+      "Distilled",
+      "27:1",
+    ],
+    createdAt: "2026-08-10T12:33:40+05:00",
+  },
+  {
     slug: "opencode-deepseek4",
     folder: "opencode-deepseek4",
     tool: "Opencode",
