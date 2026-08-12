@@ -259,6 +259,14 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-07-09T14:47:57+05:00",
   },
   {
+    slug: "opencode-grok4-6",
+    folder: "opencode-grok4-6",
+    tool: "Opencode",
+    model: "Grok 4.6",
+    labels: ["Highlighter", "Receipt", "Fiche", "Essay", "Tear"],
+    createdAt: "2026-08-12T22:36:59+05:00",
+  },
+  {
     slug: "opencode-katcoderprov2",
     folder: "opencode-katcoderprov2",
     tool: "Opencode",
