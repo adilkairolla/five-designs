@@ -177,6 +177,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-04-24T12:09:34+05:00",
   },
   {
+    slug: "opencode-deepseek4-pro-0813",
+    folder: "opencode-deepseek4-pro-0813",
+    tool: "Opencode",
+    model: "DeepSeek V4 Pro 0813",
+    labels: [
+      "The Broadside",
+      "The Extractor",
+      "The Zine",
+      "The Still",
+      "The Library",
+    ],
+    createdAt: "2026-08-12T22:32:26+05:00",
+  },
+  {
     slug: "opencode-fugu-ultra",
     folder: "opencode-fugu-ultra",
     tool: "Opencode",
