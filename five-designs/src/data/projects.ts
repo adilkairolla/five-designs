@@ -207,6 +207,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-02-19T21:53:47+05:00",
   },
   {
+    slug: "opencode-gemini3-7flash",
+    folder: "opencode-gemini3-7flash",
+    tool: "Opencode",
+    model: "Gemini 3.7 Flash",
+    labels: [
+      "Editorial Broadside",
+      "Cybernetic Codex",
+      "Zen Ratio",
+      "Executive Vault",
+      "Neo-Pop Arcade",
+    ],
+    createdAt: "2026-08-18T00:28:49+05:00",
+  },
+  {
     slug: "opencode-glm5",
     folder: "opencode-glm5",
     tool: "Opencode",
