@@ -251,6 +251,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-06-17T00:37:09+05:00",
   },
   {
+    slug: "opencode-glm5-3",
+    folder: "opencode-glm5-3",
+    tool: "Opencode",
+    model: "GLM 5.3",
+    labels: [
+      "Broadsheet",
+      "Phosphor Terminal",
+      "Neo-Pop Press",
+      "Midnight Vault",
+      "Swiss Signal",
+    ],
+    createdAt: "2026-08-19T08:27:52+05:00",
+  },
+  {
     slug: "opencode-grok4-3",
     folder: "opencode-grok4-3",
     tool: "Opencode",
