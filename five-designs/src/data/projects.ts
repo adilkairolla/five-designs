@@ -389,6 +389,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-04-30T22:45:24+05:00",
   },
   {
+    slug: "opencode-ox-alpha",
+    folder: "opencode-ox-alpha",
+    tool: "Opencode",
+    model: "Ox Alpha",
+    labels: [
+      "Ink & Paper",
+      "Terminal Green",
+      "Aurora Glass",
+      "Sticker Brutalist",
+      "Swiss Blueprint",
+    ],
+    createdAt: "2026-08-21T18:09:22+05:00",
+  },
+  {
     slug: "opencode-ponyalpha-stealth",
     folder: "opencode-ponyalpha-stealth",
     tool: "Opencode",
