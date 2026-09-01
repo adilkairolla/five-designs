@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-fraunces: "Fraunces", "Georgia", serif;
+  --font-inter: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-plex: "IBM Plex Mono", ui-monospace, monospace;
+  --font-grotesk: "Space Grotesk", system-ui, sans-serif;
+  --font-archivo: "Archivo Black", "Arial Black", sans-serif;
+  --font-manrope: "Manrope", system-ui, sans-serif;
+  --font-instrument: "Instrument Serif", "Georgia", serif;
+  --font-tight: "Inter Tight", "Inter", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+::selection {
+  background: #ffe066;
+  color: #111;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  33% { transform: translate3d(4%, -6%, 0) scale(1.08); }
+  66% { transform: translate3d(-5%, 4%, 0) scale(0.95); }
+}
+.animate-drift {
+  animation: drift 18s ease-in-out infinite;
+}
+
+@keyframes scan {
+  0% { top: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+.animate-scan {
+  animation: scan 3.2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1s steps(2) infinite;
+}
+
+/* Design 5: nested golden rectangles 8·5·3·2·1·1 */
+.golden-grid {
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "a a"
+    "b b"
+    "c d"
+    "e f";
+}
+@media (min-width: 768px) {
+  .golden-grid {
+    grid-template-columns: repeat(13, minmax(0, 1fr));
+    grid-template-rows: repeat(8, minmax(60px, auto));
+    grid-template-areas:
+      "a a a a a a a a b b b b b"
+      "a a a a a a a a b b b b b"
+      "a a a a a a a a b b b b b"
+      "a a a a a a a a b b b b b"
+      "a a a a a a a a b b b b b"
+      "a a a a a a a a c c c d d"
+      "a a a a a a a a c c c d d"
+      "a a a a a a a a c c c e f";
+  }
+}
