@@ -229,6 +229,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-08-18T00:28:49+05:00",
   },
   {
+    slug: "opencode-gemini3-8flash",
+    folder: "opencode-gemini3-8flash",
+    tool: "Opencode",
+    model: "Gemini 3.8 Flash",
+    labels: [
+      "The Literary Salon",
+      "Cyber Synthesizer",
+      "Bauhaus Neo-Brutal",
+      "Zen Sanctuary",
+      "Spatial Glass Prism",
+    ],
+    createdAt: "2026-09-02T22:23:25+05:00",
+  },
+  {
     slug: "opencode-glm5",
     folder: "opencode-glm5",
     tool: "Opencode",
