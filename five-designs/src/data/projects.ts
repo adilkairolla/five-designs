@@ -403,6 +403,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-08-06T19:44:21+05:00",
   },
   {
+    slug: "opencode-musespark1-3",
+    folder: "opencode-musespark1-3",
+    tool: "Opencode",
+    model: "Muse Spark 1.3",
+    labels: [
+      "The Sunday Edition",
+      "Signal Lab",
+      "Clay Library",
+      "Swiss Precision",
+      "Carnival Print",
+    ],
+    createdAt: "2026-09-03T06:32:31+05:00",
+  },
+  {
     slug: "opencode-owlalpha",
     folder: "opencode-owlalpha",
     tool: "Opencode",
