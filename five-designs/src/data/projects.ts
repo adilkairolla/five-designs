@@ -155,6 +155,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-07-09T23:15:47+05:00",
   },
   {
+    slug: "codex-6-astra",
+    folder: "codex-6-astra",
+    tool: "Codex",
+    model: "GPT-6 Astra",
+    labels: [
+      "The Margin",
+      "After Hours",
+      "Study Club",
+      "The Essential",
+      "A Little Clarity",
+    ],
+    createdAt: "2026-09-04T16:57:48+05:00",
+  },
+  {
     slug: "gemini-3-pro-preview",
     folder: "gemini-3-pro-preview",
     tool: "Gemini",
