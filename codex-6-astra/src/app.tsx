@@ -664,7 +664,7 @@ function DesignFive({ open }: { open: OpenReader }) {
         <section className="garden-hero">
           <img
             className="garden-photo"
-            src="/forest-canopy.jpg"
+            src={`${import.meta.env.BASE_URL}forest-canopy.jpg`}
             alt="A quiet wooden footbridge surrounded by lush green forest"
             fetchPriority="high"
           />
