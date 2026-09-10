@@ -199,6 +199,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-04-24T12:09:34+05:00",
   },
   {
+    slug: "opencode-deepseek4-flash-1",
+    folder: "opencode-deepseek4-flash-1",
+    tool: "Opencode",
+    model: "DeepSeek V4.1 Flash",
+    labels: [
+      "Marginalia",
+      "The Ratio Press",
+      "The Reading Room",
+      "The Long Read, Short",
+      "Spec Sheet RR-001",
+    ],
+    createdAt: "2026-09-10T19:37:34+05:00",
+  },
+  {
     slug: "opencode-deepseek4-pro-0813",
     folder: "opencode-deepseek4-pro-0813",
     tool: "Opencode",
