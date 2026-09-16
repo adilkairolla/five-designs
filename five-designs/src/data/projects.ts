@@ -504,6 +504,20 @@ const projectManifest: DesignProject[] = [
     labels: ["Design 1", "Design 2", "Design 3", "Design 4", "Design 5"],
     createdAt: "2026-05-09T11:10:30+05:00",
   },
+  {
+    slug: "opencode-stealth-union-alpha",
+    folder: "opencode-stealth-union-alpha",
+    tool: "Opencode",
+    model: "Union Alpha (stealth)",
+    labels: [
+      "The Editorial",
+      "Electric Ideas",
+      "The Quiet Mind",
+      "Signal / Noise",
+      "The Observatory",
+    ],
+    createdAt: "2026-09-17T01:05:18+05:00",
+  },
 ];
 
 export const projects = [...projectManifest].sort((a, b) =>
