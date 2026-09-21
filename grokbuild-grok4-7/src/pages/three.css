@@ -1,0 +1,151 @@
+.d3 {
+  color-scheme: light;
+  min-height: 100vh;
+  background: #fff;
+  color: #111;
+  font-family: "Schibsted Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+  padding: clamp(1.25rem, 4vw, 4.25rem);
+  max-width: 78rem;
+  font-size: 1.08rem;
+  line-height: 1.5;
+}
+
+.d3-hero {
+  display: grid;
+  grid-template-columns: minmax(0, max-content) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: end;
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.d3-fraction {
+  font-family: "Bodoni Moda", Didot, "Bodoni MT", serif;
+  font-weight: 500;
+  font-size: clamp(3.15rem, 11vw, 7.6rem);
+  line-height: 0.9;
+  letter-spacing: 0;
+  margin: 0;
+  font-optical-sizing: auto;
+}
+
+.d3-bar {
+  display: block;
+  height: 0.11em;
+  margin: 0.16em 0;
+  background: #1a3be0;
+  transform-origin: left center;
+  animation: d3-draw 0.7s cubic-bezier(0.16, 0.8, 0.2, 1) both;
+}
+
+@keyframes d3-draw {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+.d3-lead {
+  margin: 0;
+  max-width: 34rem;
+  font-size: 1.2rem;
+  line-height: 1.45;
+  text-wrap: pretty;
+  padding-bottom: 0.4rem;
+}
+
+.d3 h2 {
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 0.8rem;
+  text-wrap: balance;
+}
+
+.d3-instrument {
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.d3-reading {
+  margin: 1.2rem 0 1rem;
+}
+
+.d3-kept,
+.d3-quiet {
+  margin: 0.85rem 0;
+  text-wrap: pretty;
+}
+
+.d3-kept {
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.28;
+  max-width: 36rem;
+  padding-left: 0.8rem;
+  border-left: 4px solid #1a3be0;
+}
+
+.d3-quiet {
+  font-size: 1.02rem;
+  font-weight: 400;
+  line-height: 1.45;
+  max-width: 40rem;
+  color: #222;
+  padding-left: 0.8rem;
+  border-left: 4px solid transparent;
+}
+
+.d3-live {
+  margin: 0.4rem 0 0.8rem;
+}
+
+.d3-label {
+  display: grid;
+  gap: 0.55rem;
+  max-width: 28rem;
+  font-weight: 500;
+}
+
+.d3-label input {
+  width: 100%;
+  height: 2.75rem;
+  accent-color: #1a3be0;
+  cursor: pointer;
+}
+
+.d3-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.d3-split p,
+.d3-split blockquote {
+  margin: 0;
+  text-wrap: pretty;
+  max-width: 38rem;
+}
+
+.d3-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.d3-split blockquote {
+  font-family: "Bodoni Moda", Didot, "Bodoni MT", serif;
+  font-size: clamp(1.7rem, 2.4vw, 2.15rem);
+  font-weight: 500;
+  line-height: 1.2;
+  max-width: 18ch;
+}
+
+@media (max-width: 1100px) {
+  .d3-hero,
+  .d3-split {
+    grid-template-columns: 1fr;
+  }
+
+  .d3-lead {
+    padding-bottom: 0;
+  }
+}

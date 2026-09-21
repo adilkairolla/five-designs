@@ -1,0 +1,149 @@
+.d2 {
+  color-scheme: light;
+  min-height: 100vh;
+  background: #1c5c42;
+  color: #fffef9;
+  font-family: "Fraunces", "Iowan Old Style", Palatino, serif;
+  font-weight: 500;
+}
+
+.d2 :focus-visible {
+  outline-color: #fffef9;
+}
+
+.d2-card {
+  width: min(42rem, calc(100% - 2rem));
+  margin: clamp(1.25rem, 6vh, 3.5rem) auto 1.1rem;
+  perspective: 1400px;
+}
+
+.d2-inner {
+  display: grid;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.d2-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.d2-face {
+  grid-area: 1 / 1;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 34rem;
+  background-color: #fffef9;
+  background-image: linear-gradient(#e23b3b, #e23b3b);
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: 2.35rem 0;
+  color: #1a1a1a;
+  padding: 1.35rem 1.4rem 1.5rem 3.45rem;
+  box-shadow: 0 16px 30px rgba(8, 30, 20, 0.35);
+  min-width: 0;
+}
+
+.d2-front {
+  transform: rotateY(0deg);
+}
+
+.d2-back {
+  transform: rotateY(180deg);
+  pointer-events: none;
+}
+
+.d2-inner.is-flipped .d2-back {
+  pointer-events: auto;
+}
+
+.d2-inner.is-flipped .d2-front {
+  pointer-events: none;
+}
+
+.d2-print {
+  font-family: "Fraunces", "Iowan Old Style", Palatino, serif;
+  font-weight: 600;
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  color: #1c5c42;
+  margin: 0 0 0.75rem;
+  line-height: 1.15;
+}
+
+.d2-ruled {
+  flex: 1;
+  --line: clamp(1.9rem, 3vw, 2.3rem);
+  font-family: "Shantell Sans", "Segoe Print", "Marker Felt", cursive;
+  font-weight: 500;
+  font-size: calc(var(--line) * 0.58);
+  line-height: var(--line);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--line) - 1px),
+    #b7d0ea calc(var(--line) - 1px),
+    #b7d0ea var(--line)
+  );
+  background-attachment: local;
+}
+
+.d2-ruled h1,
+.d2-ruled p {
+  font: inherit;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.d2-ruled h1 {
+  font-weight: 600;
+}
+
+.d2-foot {
+  width: min(42rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding-bottom: 2.5rem;
+}
+
+.d2-status {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.d2-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.d2-actions button {
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  background: #fffef9;
+  color: #14281f;
+  border: 0;
+  font-family: "Fraunces", "Iowan Old Style", Palatino, serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.d2-actions button:hover {
+  background: #f3e38a;
+}
+
+.d2-note {
+  margin: 1.25rem 0 0;
+  font-size: 1.2rem;
+  line-height: 1.45;
+  max-width: 38rem;
+  text-wrap: pretty;
+}
+
+@media (max-width: 520px) {
+  .d2-face {
+    background-position: 1.35rem 0;
+    padding: 1rem 0.9rem 1.15rem 2.15rem;
+  }
+}

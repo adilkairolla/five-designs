@@ -177,6 +177,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-02-05T06:38:17+05:00",
   },
   {
+    slug: "grokbuild-grok4-7",
+    folder: "grokbuild-grok4-7",
+    tool: "Grokbuild",
+    model: "Grok 4.7",
+    labels: [
+      "Exam sheet",
+      "Index card",
+      "Fraction",
+      "Highlighter",
+      "Long read",
+    ],
+    createdAt: "2026-09-21T22:05:02+05:00",
+  },
+  {
     slug: "opencode-deekseek4-flash-0731",
     folder: "opencode-deekseek4-flash-0731",
     tool: "Opencode",
