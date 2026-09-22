@@ -73,6 +73,14 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-07-26T20:21:42+05:00",
   },
   {
+    slug: "claude-opus5-5",
+    folder: "claude-opus5-5",
+    tool: "Claude",
+    model: "Claude Opus 5.5",
+    labels: ["Folio", "Compressor", "Study Desk", "Terrain", "R-1"],
+    createdAt: "2026-09-22T21:43:02+05:00",
+  },
+  {
     slug: "claude-sonnet-5",
     folder: "claude-sonnet-5",
     tool: "Claude",
