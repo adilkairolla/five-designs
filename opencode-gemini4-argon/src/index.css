@@ -1,0 +1,137 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.font-instrument {
+  font-family: "Instrument Serif", Georgia, serif;
+}
+
+.font-cormorant {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.font-newsreader {
+  font-family: "Newsreader", Georgia, serif;
+}
+
+.font-fraunces {
+  font-family: "Fraunces", Georgia, serif;
+}
+
+.font-syne {
+  font-family: "Syne", sans-serif;
+}
+
+.font-space {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.font-jakarta {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.font-outfit {
+  font-family: "Outfit", sans-serif;
+}
+
+.font-dm {
+  font-family: "DM Sans", sans-serif;
+}
+
+.font-jetbrains {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.font-plex-mono {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.font-space-mono {
+  font-family: "Space Mono", monospace;
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.6deg);
+  }
+}
+
+@keyframes scanlineMove {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(400%);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+.animate-scanline {
+  animation: scanlineMove 5.5s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3.2s ease-in-out infinite;
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.riso-grain {
+  background-image: radial-gradient(rgba(17, 36, 158, 0.14) 1px, transparent 0),
+    radial-gradient(rgba(255, 79, 56, 0.12) 1px, transparent 0);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+}
+
+.blueprint-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+.editorial-grid {
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(to right, rgba(24, 21, 18, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(24, 21, 18, 0.06) 1px, transparent 1px);
+}

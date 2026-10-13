@@ -293,6 +293,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-09-02T22:23:25+05:00",
   },
   {
+    slug: "opencode-gemini4-argon",
+    folder: "opencode-gemini4-argon",
+    tool: "Opencode",
+    model: "Gemini 4 Argon",
+    labels: [
+      "The Golden Codex",
+      "Signal / Noise Lab",
+      "Herbarium of Ideas",
+      "Spatial Prism",
+      "Nocturne Salon",
+    ],
+    createdAt: "2026-10-13T22:23:24+05:00",
+  },
+  {
     slug: "opencode-glm5",
     folder: "opencode-glm5",
     tool: "Opencode",
