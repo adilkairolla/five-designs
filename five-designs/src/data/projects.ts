@@ -467,6 +467,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-09-03T06:32:31+05:00",
   },
   {
+    slug: "opencode-muse-wonder",
+    folder: "opencode-muse-wonder",
+    tool: "Opencode",
+    model: "Muse Wonder",
+    labels: [
+      "The Daily Ratio",
+      "Ratio OS",
+      "Sticker Book",
+      "The Quiet Page",
+      "Aurora",
+    ],
+    createdAt: "2026-10-13T22:19:13+05:00",
+  },
+  {
     slug: "opencode-owlalpha",
     folder: "opencode-owlalpha",
     tool: "Opencode",
