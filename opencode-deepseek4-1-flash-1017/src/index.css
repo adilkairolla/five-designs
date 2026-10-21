@@ -1,0 +1,320 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: "Archivo Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #fff;
+}
+
+::selection {
+  background: #111;
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.font-archivo-black {
+  font-family: "Archivo Black", "Archivo Variable", sans-serif;
+  font-weight: 400;
+}
+.font-archivo {
+  font-family: "Archivo Variable", sans-serif;
+}
+.font-marker {
+  font-family: "Permanent Marker", cursive;
+}
+.font-instrument {
+  font-family: "Instrument Serif", Georgia, serif;
+}
+.font-plex-mono {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+.font-condensed {
+  font-family: "IBM Plex Sans Condensed", sans-serif;
+}
+.font-fraunces {
+  font-family: "Fraunces Variable", Georgia, serif;
+}
+.font-newsreader {
+  font-family: "Newsreader Variable", Georgia, serif;
+}
+.font-lilita {
+  font-family: "Lilita One", "DM Sans Variable", sans-serif;
+}
+.font-dm {
+  font-family: "DM Sans Variable", sans-serif;
+}
+.font-staatliches {
+  font-family: "Staatliches", "Archivo Black", sans-serif;
+}
+.font-space {
+  font-family: "Space Mono", ui-monospace, monospace;
+}
+
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  opacity: 0.14;
+  mix-blend-mode: multiply;
+}
+.grain-dark::after {
+  mix-blend-mode: soft-light;
+  opacity: 0.26;
+}
+
+.halftone {
+  background-image: radial-gradient(currentColor 1.15px, transparent 1.2px);
+  background-size: 7px 7px;
+}
+.halftone-ink {
+  background-image: radial-gradient(rgba(23, 17, 15, 0.24) 1.15px, transparent 1.2px);
+  background-size: 7px 7px;
+}
+.halftone-fine {
+  background-image: radial-gradient(currentColor 0.9px, transparent 0.95px);
+  background-size: 5px 5px;
+}
+
+.paper-dots {
+  background-image: radial-gradient(rgba(18, 16, 14, 0.14) 1px, transparent 1.1px);
+  background-size: 18px 18px;
+}
+
+.blueprint-grid {
+  background-image:
+    linear-gradient(to right, rgba(16, 66, 92, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 66, 92, 0.08) 1px, transparent 1px),
+    linear-gradient(to right, rgba(16, 66, 92, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 66, 92, 0.045) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+}
+
+.field-grid {
+  background-image:
+    linear-gradient(to right, rgba(237, 230, 214, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(237, 230, 214, 0.07) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+.warning-stripes {
+  background: repeating-linear-gradient(
+    -45deg,
+    #ff5c1a 0 14px,
+    #1c1d16 14px 28px
+  );
+}
+
+.ink-card {
+  border: 3px solid #14110c;
+  box-shadow: 6px 6px 0 #14110c;
+}
+.ink-card-sm {
+  border: 2px solid #14110c;
+  box-shadow: 3px 3px 0 #14110c;
+}
+
+.tape {
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.marker-underline {
+  background-image: linear-gradient(to top, rgba(233, 255, 63, 0.95) 0 38%, transparent 38%);
+}
+
+.marker-swipe {
+  background-image: linear-gradient(100deg, transparent 0 2%, #ffd43b 2% 98%, transparent 98%);
+}
+
+.marquee {
+  overflow: hidden;
+  display: flex;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  flex-shrink: 0;
+  animation: rr-marquee 32s linear infinite;
+}
+.marquee-track--fast {
+  animation-duration: 18s;
+}
+.marquee-track--reverse {
+  animation-direction: reverse;
+}
+
+@keyframes rr-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes rr-rise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.anim-rise {
+  animation: rr-rise 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.anim-delay-1 {
+  animation-delay: 0.08s;
+}
+.anim-delay-2 {
+  animation-delay: 0.18s;
+}
+.anim-delay-3 {
+  animation-delay: 0.28s;
+}
+
+@keyframes rr-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.anim-fade {
+  animation: rr-fade 1.2s ease both;
+}
+
+@keyframes rr-sweep {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.anim-sweep {
+  transform-origin: left;
+  animation: rr-sweep 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: 0.35s;
+}
+
+@keyframes rr-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+.float-slow {
+  animation: rr-float 8s ease-in-out infinite;
+}
+.float-slower {
+  animation: rr-float 11s ease-in-out infinite;
+}
+
+@keyframes rr-glow {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+.glow-breathe {
+  animation: rr-glow 9s ease-in-out infinite;
+}
+
+@keyframes rr-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.caret-blink {
+  animation: rr-blink 1.2s steps(1) infinite;
+}
+
+@keyframes rr-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin-slow {
+  animation: rr-spin 28s linear infinite;
+}
+
+.rotate-hover {
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.35s ease;
+}
+.rotate-hover:hover {
+  transform: translate(-3px, -3px) rotate(-0.6deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes rr-fill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.crunch-bar {
+  animation: rr-fill 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}

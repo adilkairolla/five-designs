@@ -249,6 +249,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-09-10T19:37:34+05:00",
   },
   {
+    slug: "opencode-deepseek4-1-flash-1017",
+    folder: "opencode-deepseek4-1-flash-1017",
+    tool: "Opencode",
+    model: "DeepSeek V4.1 Flash 1017",
+    labels: [
+      "The Riso Edition",
+      "The Schematic",
+      "Night Reading",
+      "The Comic",
+      "Field Manual",
+    ],
+    createdAt: "2026-10-21T19:37:44+05:00",
+  },
+  {
     slug: "opencode-deepseek4-pro-0813",
     folder: "opencode-deepseek4-pro-0813",
     tool: "Opencode",
