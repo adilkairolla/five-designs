@@ -25,6 +25,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-05-20T16:54:55+05:00",
   },
   {
+    slug: "claude-haiku5-5",
+    folder: "claude-haiku5-5",
+    tool: "Claude",
+    model: "Claude Haiku 5.5",
+    labels: [
+      "Zine",
+      "Transit Map",
+      "Thermal Receipt",
+      "Annotated Page",
+      "Star Chart",
+    ],
+    createdAt: "2026-10-21T19:13:23+05:00",
+  },
+  {
     slug: "claude-opus4-5",
     folder: "claude-opus4-5",
     tool: "Claude",

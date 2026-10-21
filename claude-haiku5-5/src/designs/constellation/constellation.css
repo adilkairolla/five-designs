@@ -1,0 +1,117 @@
+.ds-constellation {
+  --sky: #0f1538;
+  --plate: #171f4c;
+  --star: #f4f6ff;
+  --key: #fff3c4;
+  --hint: #ffb869;
+  --quote: #ff7ea1;
+  --insight: #7de8c4;
+  --line: #6c7cff;
+  --muted: #b9c0e6;
+  min-height: 100svh;
+  background-color: var(--sky);
+  color: var(--star);
+  font-family: "Jost Variable", system-ui, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ds-constellation .ds-display {
+  font-family: "Gloock", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.ds-constellation [data-tone="key"] {
+  --tone: var(--key);
+}
+
+.ds-constellation [data-tone="quote"] {
+  --tone: var(--quote);
+}
+
+.ds-constellation [data-tone="hint"] {
+  --tone: var(--hint);
+}
+
+.ds-constellation [data-tone="insight"] {
+  --tone: var(--insight);
+}
+
+.ds-constellation .star {
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 9999px;
+  background: var(--tone, var(--star));
+}
+
+.ds-constellation .star[data-tone] {
+  box-shadow: 0 0 calc(var(--size) * 2.5) calc(var(--size) * 0.3)
+    color-mix(in srgb, var(--tone) 60%, transparent);
+}
+
+.ds-constellation .star-hit:focus-visible {
+  border-radius: 9999px;
+}
+
+.ds-constellation .glyph {
+  display: block;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 9999px;
+  background: var(--tone);
+  box-shadow: 0 0 0.9rem 0.1rem color-mix(in srgb, var(--tone) 55%, transparent);
+}
+
+.ds-constellation .mark-label {
+  color: var(--tone);
+}
+
+.ds-constellation .mark-label::first-letter {
+  text-transform: uppercase;
+}
+
+.ds-constellation .constellation-line {
+  fill: none;
+  stroke: var(--line);
+  stroke-opacity: 0.45;
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
+}
+
+.ds-constellation :focus-visible {
+  outline: 2px solid var(--key);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ds-constellation .star {
+    animation: constellation-twinkle 5.2s ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+  }
+
+  .ds-constellation .constellation-line {
+    stroke-dasharray: 1;
+    animation: constellation-draw 1.8s ease-out 0.6s both;
+  }
+}
+
+@keyframes constellation-twinkle {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes constellation-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

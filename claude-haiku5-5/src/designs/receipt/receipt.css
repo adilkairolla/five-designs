@@ -1,0 +1,220 @@
+.ds-receipt {
+  --desk: #2b3440;
+  --desk-ink: #fbfbf7;
+  --desk-muted: #b9c0cc;
+  --paper: #fbfbf7;
+  --ink: #1b1b1b;
+  --muted: #5c6370;
+  --stamp: #c8372d;
+  --slot: #14181f;
+  background: var(--desk);
+  color: var(--desk-ink);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+.ds-receipt .receipt-lede {
+  color: var(--desk-muted);
+}
+
+.ds-receipt .receipt-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 2px solid var(--paper);
+  background: var(--paper);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.ds-receipt .receipt-button:hover {
+  background: transparent;
+  color: var(--desk-ink);
+}
+
+.ds-receipt .receipt-button:focus-visible {
+  outline: 3px solid var(--paper);
+  outline-offset: 3px;
+}
+
+.ds-receipt .receipt-button-ink {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.ds-receipt .receipt-button-ink:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+.ds-receipt .receipt-sheet .receipt-button:focus-visible {
+  outline-color: var(--ink);
+}
+
+.ds-receipt .receipt-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--desk-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+.ds-receipt .receipt-link:focus-visible {
+  outline: 3px solid var(--paper);
+  outline-offset: 3px;
+}
+
+.ds-receipt .receipt-frame {
+  filter: drop-shadow(0 22px 28px rgb(0 0 0 / 0.3));
+}
+
+.ds-receipt .receipt-slot {
+  height: 12px;
+  border-radius: 6px 6px 0 0;
+  background: var(--slot);
+  box-shadow: inset 0 -2px 0 rgb(255 255 255 / 0.06);
+}
+
+.ds-receipt .receipt-feed {
+  overflow: hidden;
+  padding-bottom: 12px;
+}
+
+.ds-receipt .receipt-sheet {
+  position: relative;
+  background: var(--paper);
+  color: var(--ink);
+  animation: receipt-print 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.ds-receipt .receipt-torn {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 12px;
+  fill: var(--paper);
+}
+
+.ds-receipt .receipt-masthead {
+  position: relative;
+}
+
+.ds-receipt .receipt-store {
+  text-transform: uppercase;
+}
+
+.ds-receipt .receipt-stamp {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2px 10px;
+  border: 3px solid var(--stamp);
+  border-radius: 4px;
+  color: var(--stamp);
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transform: rotate(-9deg);
+  mix-blend-mode: multiply;
+}
+
+.ds-receipt .receipt-heading {
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.ds-receipt .receipt-detail {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.ds-receipt .receipt-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.ds-receipt .receipt-leader {
+  flex: 1 1 auto;
+  min-width: 24px;
+  height: 4px;
+  margin-bottom: 0.25em;
+  background-image: radial-gradient(circle, currentColor 1.1px, transparent 1.5px);
+  background-size: 9px 4px;
+  opacity: 0.5;
+}
+
+.ds-receipt .receipt-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgb(27 27 27 / 0.14);
+}
+
+.ds-receipt .receipt-item:last-child {
+  border-bottom: 0;
+}
+
+.ds-receipt .receipt-page {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.ds-receipt .receipt-tag {
+  justify-self: start;
+  padding: 0 6px;
+  border: 1.5px solid var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.ds-receipt .receipt-perf {
+  border-top: 2px dashed rgb(27 27 27 / 0.35);
+}
+
+.ds-receipt .receipt-barcode rect {
+  fill: var(--ink);
+}
+
+.ds-receipt .receipt-footer {
+  color: var(--desk-muted);
+}
+
+@keyframes receipt-print {
+  from {
+    clip-path: inset(-60px -60px 100% -60px);
+    transform: translateY(-14px);
+  }
+  to {
+    clip-path: inset(-60px -60px -60px -60px);
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-receipt .receipt-sheet {
+    animation: none;
+  }
+
+  .ds-receipt .receipt-button,
+  .ds-receipt .receipt-link {
+    transition: none;
+  }
+}

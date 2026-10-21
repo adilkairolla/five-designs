@@ -1,0 +1,412 @@
+.ds-zine {
+  --paper: #f1f0ec;
+  --pink: #ff48b0;
+  --blue: #0078bf;
+  --ink: #17161c;
+  position: relative;
+  isolation: isolate;
+  min-height: 100dvh;
+  overflow-x: clip;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Archivo Variable", "Archivo", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+.ds-zine :focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+
+.ds-zine .zine-wordmark {
+  color: var(--ink);
+  font-stretch: 125%;
+  font-weight: 900;
+  font-size: clamp(0.95rem, 2vw, 1.3rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.ds-zine .zine-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.65rem 1.1rem;
+  border: 2px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 5px 5px 0 var(--pink);
+  font-size: 0.95rem;
+  font-stretch: 115%;
+  font-weight: 800;
+  text-decoration: none;
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.ds-zine .zine-button:hover {
+  box-shadow: 8px 8px 0 var(--pink);
+  transform: translate(-2px, -2px);
+}
+
+.ds-zine .zine-button:active {
+  box-shadow: 0 0 0 var(--pink);
+  transform: translate(3px, 3px);
+}
+
+.ds-zine .zine-link {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: var(--blue);
+  text-underline-offset: 0.3em;
+}
+
+.ds-zine .zine-title {
+  font-size: clamp(2.6rem, 7.4vw, 7.75rem);
+  font-stretch: 125%;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.ds-zine .zine-h2 {
+  font-size: clamp(2.1rem, 4.4vw, 3.75rem);
+  font-stretch: 125%;
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.ds-zine .zine-h3 {
+  font-size: 1.55rem;
+  font-stretch: 115%;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.ds-zine .zine-lede {
+  max-width: 34ch;
+  font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.ds-zine .zine-note {
+  max-width: 44ch;
+  line-height: 1.5;
+}
+
+.ds-zine .zine-summary {
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 500;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+.ds-zine .zine-small {
+  font-size: 0.9rem;
+  font-stretch: 115%;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.ds-zine .zine-cover-title {
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  font-stretch: 125%;
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.ds-zine .zine-cover-teaser {
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.ds-zine .zine-type {
+  font-family: "Special Elite", "Courier New", monospace;
+  font-size: 1.02rem;
+  font-stretch: 100%;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.ds-zine .zine-page {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  background: var(--pink);
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-stretch: 110%;
+  font-weight: 800;
+  line-height: 1.5;
+  white-space: nowrap;
+  mix-blend-mode: multiply;
+}
+
+.ds-zine .zine-sheet {
+  --tilt: 0deg;
+  position: relative;
+  padding: clamp(1.4rem, 3vw, 2.4rem);
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  box-shadow: 7px 7px 0 var(--pink);
+  transform: rotate(var(--tilt));
+  transition: transform 320ms ease, box-shadow 320ms ease;
+}
+
+.ds-zine .zine-sheet:hover {
+  box-shadow: 10px 10px 0 var(--pink);
+  transform: rotate(0deg);
+}
+
+.ds-zine .zine-sheet-a {
+  --tilt: -1deg;
+}
+
+.ds-zine .zine-sheet-b {
+  --tilt: 1.2deg;
+}
+
+.ds-zine .zine-sheet-c {
+  --tilt: -0.7deg;
+}
+
+.ds-zine .zine-sheet-d {
+  --tilt: 1.1deg;
+}
+
+.ds-zine .zine-sheet-e {
+  --tilt: -0.5deg;
+}
+
+.ds-zine .zine-cover {
+  --tilt: -2deg;
+  display: grid;
+  gap: 0.9rem;
+  animation: zine-stamp 600ms 300ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.ds-zine .zine-tape::before {
+  content: "";
+  position: absolute;
+  top: -0.9rem;
+  left: 50%;
+  width: 6.5rem;
+  height: 1.7rem;
+  margin-left: -3.25rem;
+  background: rgb(255 255 255 / 0.6);
+  border: 1px solid rgb(23 22 28 / 0.14);
+  transform: rotate(-4deg);
+}
+
+.ds-zine .zine-staples {
+  position: absolute;
+  top: -0.6rem;
+  right: 2rem;
+  width: 2.6rem;
+  height: 1.1rem;
+  border: 2px solid var(--ink);
+  border-bottom: 0;
+  background: var(--paper);
+}
+
+.ds-zine .zine-dots-blue,
+.ds-zine .zine-dots-pink {
+  background-size: 10px 10px;
+  mix-blend-mode: multiply;
+}
+
+.ds-zine .zine-dots-blue {
+  background-image: radial-gradient(circle, var(--blue) 1.8px, transparent 2px);
+}
+
+.ds-zine .zine-dots-pink {
+  background-image: radial-gradient(circle, var(--pink) 1.8px, transparent 2px);
+}
+
+.ds-zine .zine-misprint {
+  --misreg: 0.2rem;
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: top;
+}
+
+.ds-zine .zine-misprint-ink {
+  display: inline-block;
+  position: relative;
+}
+
+.ds-zine .zine-misprint-plate {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  color: var(--pink);
+  mix-blend-mode: multiply;
+  transform: translate(var(--misreg), var(--misreg));
+  transition: transform 260ms ease;
+  pointer-events: none;
+}
+
+.ds-zine .zine-group:is(:hover, :focus-within) .zine-misprint {
+  --misreg: 0.6rem;
+}
+
+.ds-zine .zine-badge {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 0.15rem;
+  width: clamp(9.5rem, 24vw, 12.5rem);
+  aspect-ratio: 1;
+  padding: 1rem;
+  border: 2.5px solid var(--ink);
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: 6px 6px 0 var(--pink);
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-stretch: 115%;
+  font-weight: 800;
+  line-height: 1.1;
+  text-align: center;
+  rotate: -9deg;
+  animation: zine-stamp 560ms 520ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.ds-zine .zine-badge-big {
+  font-size: clamp(1.9rem, 3.4vw, 2.5rem);
+  font-stretch: 125%;
+  font-weight: 900;
+  line-height: 0.95;
+  white-space: nowrap;
+}
+
+.ds-zine .zine-fold {
+  display: grid;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  box-shadow: 7px 7px 0 var(--blue);
+}
+
+.ds-zine .zine-panel {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+.ds-zine .zine-panel + .zine-panel {
+  border-top: 2px dashed var(--ink);
+}
+
+.ds-zine .zine-panel-index {
+  justify-self: start;
+  padding: 0.1rem 0.7rem;
+  background: var(--blue);
+  color: var(--paper);
+  font-size: 2.2rem;
+  font-stretch: 125%;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.ds-zine .zine-list > li + li,
+.ds-zine .zine-quote + .zine-quote {
+  padding-top: 1.4rem;
+  border-top: 2px dashed var(--ink);
+}
+
+.ds-zine .zine-clip {
+  padding: 1.2rem;
+  border: 2px dashed var(--ink);
+  background: var(--paper);
+}
+
+.ds-zine .zine-tag {
+  justify-self: start;
+  padding: 0.15rem 0.6rem;
+  border: 2px solid var(--blue);
+  font-size: 0.9rem;
+  font-stretch: 110%;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.ds-zine .zine-clip:nth-child(2) .zine-tag {
+  border-color: var(--ink);
+  background: var(--pink);
+}
+
+.ds-zine .zine-clip:nth-child(3) .zine-tag {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.ds-zine .zine-finale {
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  box-shadow: 10px 10px 0 var(--blue);
+  rotate: -0.6deg;
+}
+
+.ds-zine .zine-colophon {
+  border-top: 2px solid var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@keyframes zine-stamp {
+  from {
+    opacity: 0;
+    scale: 1.06;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.ds-zine .zine-hero .zine-misprint-ink {
+  animation: zine-stamp 620ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.ds-zine .zine-hero .zine-misprint-plate {
+  animation: zine-stamp 620ms 140ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (min-width: 768px) {
+  .ds-zine .zine-button {
+    padding: 0.75rem 1.4rem;
+    font-size: 1rem;
+  }
+
+  .ds-zine .zine-fold {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ds-zine .zine-panel + .zine-panel {
+    border-top: 0;
+    border-left: 2px dashed var(--ink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-zine *,
+  .ds-zine *::before,
+  .ds-zine *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

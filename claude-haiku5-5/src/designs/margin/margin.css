@@ -1,0 +1,320 @@
+.ds-margin {
+  --margin-desk: #e6e9ee;
+  --margin-sheet: #ffffff;
+  --margin-ink: #17191e;
+  --margin-muted: #4b5260;
+  --margin-rule: #d5d9e0;
+  --margin-paper: #f4f5f8;
+  --margin-highlight: #ffe45c;
+  --margin-hint: #2f6bff;
+  --margin-hint-ink: #2456e0;
+  --margin-insight: #e0412b;
+  --margin-insight-ink: #b3301c;
+  min-height: 100dvh;
+  overflow-x: clip;
+  background: var(--margin-desk);
+  color: var(--margin-ink);
+  font-family: "Hanken Grotesk Variable", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ds-margin :focus-visible {
+  outline: 2px solid var(--margin-hint);
+  outline-offset: 3px;
+}
+
+.margin-display,
+.margin-text,
+.margin-quote-text {
+  font-family: "Newsreader Variable", Georgia, serif;
+  font-optical-sizing: auto;
+}
+
+.margin-display {
+  font-variation-settings: "opsz" 72;
+  letter-spacing: -0.012em;
+}
+
+.margin-title {
+  font-size: clamp(2.6rem, 5.4vw, 4.6rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+}
+
+.margin-heading {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.margin-text {
+  font-size: 1.1875rem;
+  line-height: 2rem;
+  color: var(--margin-ink);
+}
+
+.margin-abstract {
+  font-size: 1.0625rem;
+}
+
+.margin-folio {
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--margin-muted);
+}
+
+.margin-link {
+  color: var(--margin-ink);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+}
+
+.margin-link:hover {
+  text-decoration-color: var(--margin-hint);
+}
+
+.margin-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0 1.25rem;
+  border-radius: 4px;
+  background: var(--margin-ink);
+  color: #ffffff;
+  font-size: 0.975rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.margin-button:hover {
+  background: #353945;
+}
+
+.margin-button.margin-button-ghost {
+  background: transparent;
+  color: var(--margin-ink);
+  box-shadow: inset 0 0 0 1.5px var(--margin-ink);
+}
+
+.margin-button.margin-button-ghost:hover {
+  background: rgb(23 25 30 / 0.06);
+}
+
+.margin-doc {
+  position: relative;
+  isolation: isolate;
+}
+
+.margin-doc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--margin-sheet);
+  box-shadow: 0 1px 0 rgb(23 25 30 / 0.05), 0 32px 64px -40px rgb(23 25 30 / 0.55);
+}
+
+.margin-sheet-cell,
+.margin-note-cell {
+  position: relative;
+  view-timeline: --margin-row block;
+}
+
+.margin-break {
+  border-top: 1px solid var(--margin-rule);
+}
+
+.margin-tone-ink {
+  --tone: var(--margin-ink);
+  --tone-ink: var(--margin-ink);
+}
+
+.margin-tone-hint {
+  --tone: var(--margin-hint);
+  --tone-ink: var(--margin-hint-ink);
+}
+
+.margin-tone-insight {
+  --tone: var(--margin-insight);
+  --tone-ink: var(--margin-insight-ink);
+}
+
+.margin-hl {
+  background: linear-gradient(var(--margin-highlight), var(--margin-highlight)) no-repeat 0 0 / 100% 100%;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  mix-blend-mode: multiply;
+}
+
+.margin-pencil {
+  text-decoration: underline;
+  text-decoration-color: var(--margin-hint);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.22em;
+}
+
+.margin-bracket {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  bottom: 2rem;
+  display: none;
+  width: 0.75rem;
+  border: 1.5px solid var(--tone);
+  border-left: 0;
+}
+
+.margin-note {
+  position: relative;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--tone);
+}
+
+.margin-note + .margin-note {
+  margin-top: 1.5rem;
+}
+
+.margin-note-quiet {
+  --tone: var(--margin-rule);
+}
+
+.margin-note-label {
+  font-size: 0.8125rem;
+  font-weight: 650;
+  line-height: 2rem;
+  color: var(--tone-ink);
+}
+
+.margin-note-text {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--margin-ink);
+}
+
+.margin-note-quiet .margin-note-text {
+  color: var(--margin-muted);
+}
+
+.margin-leader {
+  position: absolute;
+  top: 2.75rem;
+  left: 0;
+  display: none;
+  width: 2rem;
+  height: 0.5rem;
+  overflow: visible;
+}
+
+.margin-leader path {
+  fill: none;
+  stroke: var(--tone);
+  stroke-width: 1.5;
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 0;
+}
+
+.margin-quote {
+  position: relative;
+  margin: 0.75rem 0 0;
+  padding: 1.5rem 1.5rem 1.25rem;
+  border: 1px solid var(--margin-rule);
+  border-radius: 3px;
+  background: var(--margin-paper);
+}
+
+.margin-quote-text {
+  margin: 0;
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--margin-ink);
+}
+
+.margin-pin {
+  position: absolute;
+  top: -0.55rem;
+  left: 50%;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-left: -0.55rem;
+  border-radius: 999px;
+  background: var(--margin-ink);
+  box-shadow: 0 2px 3px rgb(23 25 30 / 0.3);
+}
+
+@media (min-width: 64rem) {
+  .margin-doc::before {
+    right: auto;
+    width: 58.3333%;
+  }
+
+  .margin-note {
+    padding-left: 2.25rem;
+    border-left: 0;
+  }
+
+  .margin-leader,
+  .margin-bracket {
+    display: block;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .margin-hl {
+      background-size: 0% 100%;
+      animation: margin-sweep linear both;
+      animation-timeline: --margin-row;
+      animation-range: entry 10% cover 40%;
+    }
+
+    .margin-bracket {
+      transform-origin: top;
+      animation: margin-grow linear both;
+      animation-timeline: --margin-row;
+      animation-range: entry 0% cover 30%;
+    }
+
+    .margin-leader path {
+      stroke-dashoffset: 1;
+      animation: margin-draw linear both;
+      animation-timeline: --margin-row;
+      animation-range: entry 20% cover 45%;
+    }
+  }
+}
+
+@keyframes margin-sweep {
+  from {
+    background-size: 0% 100%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+@keyframes margin-grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes margin-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
