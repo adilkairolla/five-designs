@@ -479,6 +479,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-06-01T16:28:44+05:00",
   },
   {
+    slug: "opencode-minimax3-1-flash",
+    folder: "opencode-minimax3-1-flash",
+    tool: "Opencode",
+    model: "MiniMax M3.1 Flash",
+    labels: [
+      "Editorial Print",
+      "Terminal",
+      "Annotated Notebook",
+      "Neo-Brutalist Pop",
+      "Aurora Glass",
+    ],
+    createdAt: "2026-10-21T19:18:50+05:00",
+  },
+  {
     slug: "opencode-minimaxm2-5",
     folder: "opencode-minimaxm2-5",
     tool: "Opencode",
