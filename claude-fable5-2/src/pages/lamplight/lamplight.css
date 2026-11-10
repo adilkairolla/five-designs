@@ -1,0 +1,76 @@
+.lamplight {
+  background:
+    radial-gradient(120% 60rem at 50% -10rem, #34203f 0%, transparent 70%),
+    linear-gradient(var(--color-night), var(--color-night-deep));
+}
+
+.lamplight .wall {
+  --lamp-x: 50%;
+  --lamp-y: 32%;
+  --lamp-r: clamp(7rem, 17vw, 14rem);
+  --lit-color: #ffe3ae;
+  --lit-glow: 0 0 1.1rem rgb(255 196 107 / 0.55), 0 0 4rem rgb(255 196 107 / 0.3);
+  position: relative;
+  touch-action: pan-y;
+}
+
+.lamplight .wall-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle calc(var(--lamp-r) * 1.7) at var(--lamp-x) var(--lamp-y),
+    rgb(255 196 107 / 0.14),
+    transparent 70%
+  );
+}
+
+.lamplight .wall-dim {
+  color: rgb(255 240 210 / 0.15);
+}
+
+.lamplight .wall-reveal {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  color: rgb(255 240 210 / 0.82);
+  -webkit-mask-image: radial-gradient(
+    circle var(--lamp-r) at var(--lamp-x) var(--lamp-y),
+    #000 0%,
+    rgb(0 0 0 / 0.5) 55%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    circle var(--lamp-r) at var(--lamp-x) var(--lamp-y),
+    #000 0%,
+    rgb(0 0 0 / 0.5) 55%,
+    transparent 100%
+  );
+}
+
+.lamplight .lit {
+  animation: lamplight-ignite 1.6s ease-out var(--d, 0s) forwards;
+}
+
+.lamplight .wall-reveal .lit {
+  visibility: hidden;
+}
+
+@keyframes lamplight-ignite {
+  to {
+    color: var(--lit-color);
+    text-shadow: var(--lit-glow);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lamplight .lit {
+    animation: none;
+    color: var(--lit-color);
+    text-shadow: var(--lit-glow);
+  }
+}
+
+.lamplight .pool {
+  background: radial-gradient(closest-side, rgb(255 196 107 / 0.12), transparent);
+}

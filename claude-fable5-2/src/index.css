@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./pages/marginalia/marginalia.css";
+@import "./pages/proportion/proportion.css";
+@import "./pages/lamplight/lamplight.css";
+@import "./pages/receipt/receipt.css";
+@import "./pages/cards/cards.css";
+
+@theme static {
+  --font-literata: "Literata Variable", Georgia, serif;
+  --font-caveat: "Caveat Variable", "Bradley Hand", cursive;
+  --font-archivo: "Archivo Variable", "Helvetica Neue", Arial, sans-serif;
+  --font-cormorant: "Cormorant Variable", "Iowan Old Style", Georgia, serif;
+  --font-atkinson: "Atkinson Hyperlegible Next Variable", Verdana, sans-serif;
+  --font-dm-mono: "DM Mono", ui-monospace, Menlo, monospace;
+  --font-anton: "Anton", Impact, "Arial Narrow", sans-serif;
+  --font-bricolage: "Bricolage Grotesque Variable", "Trebuchet MS", sans-serif;
+
+  --color-baize: #1e4a3b;
+  --color-baize-deep: #143428;
+  --color-sheet: #fdfdfa;
+  --color-ink: #1a2238;
+  --color-marker: #ffe84d;
+  --color-marker-pink: #ff9cc2;
+  --color-pen: #2b44d6;
+  --color-graphite: #666b73;
+
+  --color-klein: #1a2bff;
+  --color-klein-wash: #e9ebff;
+
+  --color-night: #24152e;
+  --color-night-deep: #150a1c;
+  --color-lamp: #ffc46b;
+  --color-lamplit: #fff0d2;
+  --color-dusk: #b3a1c0;
+
+  --color-counter: #ffc629;
+  --color-thermal: #fcfcf9;
+  --color-print: #1f1f1f;
+  --color-stamp: #e4261c;
+
+  --color-lilac: #cdbdff;
+  --color-forest: #0f3d2e;
+  --color-tangerine: #ff7a1a;
+  --color-butter: #ffeb94;
+  --color-chalk: #fffef8;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

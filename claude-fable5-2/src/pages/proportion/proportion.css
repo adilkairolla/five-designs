@@ -1,0 +1,67 @@
+.proportion .wide {
+  font-stretch: 125%;
+}
+
+.proportion .narrow {
+  font-stretch: 62%;
+}
+
+.proportion .ratio-bar {
+  transition: width 0.2s ease-out;
+  animation: proportion-compress 1.4s cubic-bezier(0.7, 0, 0.2, 1) 0.3s backwards;
+}
+
+@keyframes proportion-compress {
+  from {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proportion .ratio-bar {
+    animation: none;
+    transition: none;
+  }
+}
+
+.proportion .ratio-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2.75rem;
+  background: transparent;
+  cursor: ew-resize;
+}
+
+.proportion .ratio-slider::-webkit-slider-runnable-track {
+  height: 2px;
+  background: #000;
+}
+
+.proportion .ratio-slider::-moz-range-track {
+  height: 2px;
+  background: #000;
+}
+
+.proportion .ratio-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 2rem;
+  height: 2rem;
+  margin-top: calc(1px - 1rem);
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-klein);
+}
+
+.proportion .ratio-slider::-moz-range-thumb {
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-klein);
+}
+
+.proportion .ratio-slider:focus-visible {
+  outline: 2px solid var(--color-klein);
+  outline-offset: 4px;
+}

@@ -1,0 +1,46 @@
+.cards .condensed {
+  font-stretch: 75%;
+}
+
+.cards .pile-card {
+  box-shadow: 0 1.5rem 2.25rem -1.25rem rgb(15 61 46 / 0.55);
+}
+
+@media (min-width: 64rem) {
+  .cards .pile {
+    container-type: inline-size;
+    height: 35rem;
+  }
+
+  .cards .pile-card {
+    position: absolute;
+    left: var(--left);
+    top: var(--top);
+    width: var(--width);
+    font-size: clamp(0.8125rem, 1.3cqw, 1rem);
+    transform: translate(var(--dx, 0px), var(--dy, 0px)) rotate(var(--turn, 0deg));
+    transition:
+      transform 0.55s cubic-bezier(0.2, 0.9, 0.25, 1.1),
+      left 0.55s cubic-bezier(0.2, 0.9, 0.25, 1.1),
+      top 0.55s cubic-bezier(0.2, 0.9, 0.25, 1.1);
+    touch-action: none;
+    cursor: grab;
+    user-select: none;
+  }
+
+  .cards .pile-card[data-dragging="true"] {
+    transition: none;
+    cursor: grabbing;
+    box-shadow: 0 2.5rem 3rem -1.25rem rgb(15 61 46 / 0.6);
+  }
+}
+
+@media (min-width: 64rem) and (prefers-reduced-motion: reduce) {
+  .cards .pile-card {
+    transition: none;
+  }
+}
+
+.cards .spine {
+  writing-mode: vertical-rl;
+}
