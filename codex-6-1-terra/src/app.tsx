@@ -1,9 +1,10 @@
 import { ArrowDown, ArrowDownRight, ArrowRight, ArrowUpRight, FileText, Lightbulb, Quote, Sparkles, Upload, Zap } from 'lucide-react'
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 
 const designs = [1, 2, 3, 4, 5]
 
 function DesignSwitcher({ current }: { current: number }) {
-  return <div className="design-switcher" aria-label="Explore design concepts"><span>Explore concepts</span>{designs.map((design) => <a key={design} className={design === current ? 'active' : ''} href={`/${design}`} aria-label={`Design ${design}`} aria-current={design === current ? 'page' : undefined}>{String(design).padStart(2, '0')}</a>)}</div>
+  return <div className="design-switcher" aria-label="Explore design concepts"><span>Explore concepts</span>{designs.map((design) => <Link key={design} className={design === current ? 'active' : ''} to={`/${design}`} aria-label={`Design ${design}`} aria-current={design === current ? 'page' : undefined}>{String(design).padStart(2, '0')}</Link>)}</div>
 }
 
 function Brand({ light = false }: { light?: boolean }) {
@@ -43,7 +44,5 @@ function Still() {
 }
 
 export function App() {
-  const path = window.location.pathname.replace(/\/$/, '')
-  const pages: Record<string, React.ReactNode> = { '/1': <Editorial/>, '/2': <Signal/>, '/3': <Journal/>, '/4': <Pop/>, '/5': <Still/> }
-  return pages[path] ?? <Editorial/>
+  return <BrowserRouter><Routes><Route path="/1" element={<Editorial/>}/><Route path="/2" element={<Signal/>}/><Route path="/3" element={<Journal/>}/><Route path="/4" element={<Pop/>}/><Route path="/5" element={<Still/>}/><Route path="*" element={<Editorial/>}/></Routes></BrowserRouter>
 }
