@@ -1,0 +1,1018 @@
+.field-page {
+  --accent: #31543d;
+  --button-text: #f3f4e8;
+  --page-bg: #f5f5ed;
+  background: #f5f5ed;
+  color: #2e4b39;
+}
+.field-page .site-header {
+  padding-block: 28px;
+}
+.field-page .brand {
+  font-size: 24px;
+  letter-spacing: -1.1px;
+  font-weight: 650;
+}
+.field-page .brand-reader {
+  font-weight: 400;
+}
+.field-page .brand > .ratio-mark {
+  transform: rotate(16deg) scale(0.9);
+}
+.field-page .desktop-nav {
+  font-size: 11px;
+  color: #697661;
+}
+.field-page .header-cta {
+  border-radius: 99px;
+  border-color: #9ca78a;
+  color: #3d553a;
+  padding: 11px 17px;
+  font-size: 10px;
+}
+.field-page .button {
+  border-radius: 99px;
+  font-size: 11px;
+  gap: 26px;
+  min-height: 47px;
+  padding: 14px 22px;
+  font-weight: 450;
+}
+.field-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 65px;
+  padding-block: 65px 72px;
+  align-items: center;
+  min-height: 665px;
+}
+.field-intro {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: #788469;
+  margin-bottom: 27px;
+}
+.field-hero h1 {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 87px;
+  letter-spacing: -3.2px;
+  line-height: 0.99;
+  font-weight: 400;
+}
+.field-hero-copy > p {
+  font-size: 14px;
+  line-height: 1.95;
+  max-width: 330px;
+  color: #707e66;
+  margin-top: 28px;
+}
+.field-hero-copy > .button {
+  margin-top: 29px;
+}
+.field-hero-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 8px;
+  color: #8f9882;
+  margin-top: 16px;
+}
+.field-hero-bottom {
+  margin-top: 38px;
+  display: flex;
+  align-items: center;
+  gap: 66px;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 15px;
+  line-height: 1.3;
+  color: #889276;
+}
+.field-hero-visual {
+  position: relative;
+  height: 510px;
+  padding-left: 38px;
+}
+.field-image-frame {
+  position: relative;
+  height: 470px;
+  max-width: 380px;
+  width: 100%;
+  margin-left: auto;
+  border-radius: 190px 190px 3px 3px;
+  overflow: hidden;
+  background: #88967d;
+}
+.field-image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.55) brightness(0.78);
+}
+.field-image-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 55%, #203d2a7a);
+}
+.forest-image-label {
+  position: absolute;
+  left: 33px;
+  bottom: 33px;
+  z-index: 1;
+  color: #e5e7d2;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 22px;
+  line-height: 1.1;
+  letter-spacing: -0.3px;
+}
+.forest-image-label > span {
+  display: block;
+}
+.forest-image-label > span:last-child {
+  font-size: 18px;
+  font-style: italic;
+  margin-top: 3px;
+  color: #d7dcc6;
+}
+.botanical-sprig {
+  color: #6e805e;
+  width: 150px;
+  height: auto;
+}
+.hero-sprig {
+  position: absolute;
+  right: -52px;
+  bottom: 38px;
+  width: 122px;
+  transform: rotate(15deg);
+  z-index: 2;
+  color: #647a50;
+}
+.field-floating-note {
+  position: absolute;
+  left: -30px;
+  top: 190px;
+  background: #eeefdc;
+  border: 1px solid #c8cfb1;
+  box-shadow: 0 9px 25px #3c4c2e0f;
+  transform: rotate(-9deg);
+  width: 190px;
+  padding: 23px 22px 17px;
+  z-index: 2;
+}
+.field-note-label {
+  font-size: 6px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  color: #849075;
+}
+.field-floating-note > p {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 25px;
+  line-height: 1.03;
+  letter-spacing: -0.5px;
+  margin-top: 18px;
+  color: #4e6344;
+}
+.field-floating-note > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-top: 1px solid #ccd4b5;
+  font-size: 5px;
+  padding-top: 12px;
+  margin-top: 19px;
+  color: #8d987d;
+  white-space: nowrap;
+}
+.field-floating-note > div > i {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #8a9b6f;
+}
+.field-image-caption {
+  display: block;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 12px;
+  font-style: italic;
+  color: #929c84;
+  margin-top: 19px;
+  text-align: center;
+}
+.field-whisper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #e9eddf;
+  color: #829274;
+  padding: 23px;
+  font-size: 10px;
+}
+.field-values {
+  padding-block: 80px 90px;
+}
+.field-values-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #b8c0a94d;
+}
+.field-values-heading > span {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 32px;
+  letter-spacing: -0.6px;
+  line-height: 1.1;
+}
+.field-values-heading > p {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #718262;
+}
+.field-value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 65px;
+  padding-top: 33px;
+}
+.field-value-grid article > span {
+  display: grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #c7cfb7;
+  border-radius: 50%;
+  color: #7f926c;
+  margin-bottom: 23px;
+}
+.field-value-grid h3 {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+}
+.field-value-grid p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #707f63;
+  margin-top: 12px;
+  max-width: 280px;
+}
+.field-process {
+  background: #e9ecdf;
+  padding-block: 80px;
+}
+.field-process-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+.field-notebook {
+  position: relative;
+  background: #f7f8ef;
+  border: 1px solid #c8cfb7;
+  box-shadow: 5px 5px 0 #d3d9c4;
+  padding: 18px;
+  transform: rotate(-2deg);
+  border-radius: 2px;
+}
+.field-notebook::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid #d9dfca;
+}
+.field-notebook-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Newsreader", Georgia, serif;
+  font-style: italic;
+  font-size: 13px;
+  color: #8c9b7d;
+  padding: 2px 8px 17px;
+}
+.field-preview {
+  box-shadow: none;
+  border: 1px solid #dce2d0;
+  border-radius: 2px;
+  background: #fcfdf7;
+}
+.field-preview .preview-toolbar {
+  display: none;
+}
+.field-preview .preview-tabs {
+  border-color: #e3e7dc;
+}
+.field-preview .preview-tabs button {
+  color: #8e9b80;
+  font-size: 9px;
+}
+.field-preview .preview-tabs button[aria-selected="true"] {
+  color: #54704a;
+  border-color: #54704a;
+}
+.field-preview .insight-eyebrow {
+  color: #8b9a73;
+  font-size: 8px;
+}
+.field-preview .preview-content {
+  padding: 25px;
+}
+.field-preview .preview-content h3 {
+  font-size: 28px;
+  color: #3b5735;
+}
+.field-preview .preview-content > p {
+  color: #9ba58e;
+  font-size: 9px;
+}
+.field-preview .insight-list li > span {
+  color: #7d9166;
+  background: #eef1e4;
+}
+.field-preview .insight-list strong {
+  color: #627654;
+  font-size: 9px;
+}
+.field-preview .insight-list p {
+  color: #a0ab92;
+  font-size: 8px;
+}
+.field-preview .preview-bottom {
+  color: #a0ad92;
+  border-color: #e3e7dc;
+  font-size: 8px;
+}
+.field-preview .preview-content blockquote {
+  color: #627654;
+  border-color: #a9b993;
+}
+.field-preview .preview-content cite {
+  color: #93a47e;
+}
+.field-preview .hint-item strong {
+  color: #627654;
+}
+.field-preview .hint-item p {
+  color: #899b78;
+}
+.field-notebook-footer {
+  font:
+    italic 12px "Newsreader",
+    Georgia,
+    serif;
+  color: #98a187;
+  text-align: center;
+  padding-top: 18px;
+}
+.notebook-sprig {
+  position: absolute;
+  width: 87px;
+  bottom: -35px;
+  left: -48px;
+  transform: rotate(-26deg);
+}
+.field-page .section-kicker {
+  font-family: "DM Sans", sans-serif;
+  font-size: 9px;
+  color: #8d9b7d;
+}
+.field-page h2 {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 47px;
+  line-height: 1.05;
+  letter-spacing: -1.2px;
+  font-weight: 400;
+}
+.field-trail {
+  display: grid;
+  gap: 25px;
+  margin-top: 30px;
+}
+.field-trail > div {
+  display: flex;
+  gap: 18px;
+  position: relative;
+}
+.field-trail > div:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 27px;
+  bottom: -25px;
+  border-left: 1px dashed #b5c09e;
+}
+.field-trail > div > span {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 13px;
+  color: #8f9e78;
+  border: 1px solid #bfc9ac;
+  background: #eef1e4;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.field-trail h3 {
+  font-size: 12px;
+  color: #5d734f;
+  font-weight: 500;
+}
+.field-trail p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: #718262;
+  margin-top: 6px;
+  max-width: 280px;
+}
+.field-text-button {
+  background: transparent !important;
+  color: #567047 !important;
+  box-shadow: none;
+  padding-left: 0 !important;
+  gap: 9px !important;
+  font-size: 10px !important;
+  margin-top: 20px;
+}
+.field-text-button > svg:last-child {
+  display: none;
+}
+.field-belief {
+  background: #31513a;
+  color: #e9ecd7;
+  text-align: center;
+  padding-block: 80px;
+}
+.field-belief > .content-width {
+  position: relative;
+}
+.field-belief .section-kicker {
+  color: #b5c3a0;
+}
+.field-belief p {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 58px;
+  line-height: 1.1;
+  letter-spacing: -1.1px;
+  font-weight: 400;
+}
+.field-belief > div > span:last-of-type {
+  font-size: 10px;
+  display: block;
+  color: #9db38f;
+  margin-top: 22px;
+}
+.field-belief .botanical-sprig {
+  position: absolute;
+  left: 20px;
+  top: -13px;
+  width: 130px;
+  color: #9eae835c;
+  transform: rotate(-17deg);
+}
+.field-belief .belief-sprig-right {
+  left: auto;
+  right: 10px;
+  top: -10px;
+  transform: scaleX(-1) rotate(-14deg);
+}
+.field-audience {
+  padding-block: 80px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 100px;
+}
+.field-audience-list {
+  display: grid;
+  gap: 23px;
+}
+.field-audience-list > div {
+  border-bottom: 1px solid #b8c0a94d;
+  padding-bottom: 20px;
+}
+.field-audience-list > div > span {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 23px;
+  letter-spacing: -0.4px;
+}
+.field-audience-list p {
+  font-size: 10px;
+  color: #6c7e5d;
+  margin-top: 8px;
+}
+.field-final {
+  position: relative;
+  background: #e5e9d6;
+  border: 1px solid #d9dfc9;
+  min-height: 315px;
+  padding: 55px 70px;
+  overflow: hidden;
+}
+.field-final > div > svg {
+  color: #94a27a;
+  margin-bottom: 15px;
+}
+.field-final h2 {
+  font-size: 45px;
+}
+.field-final .button {
+  margin-top: 25px;
+}
+.field-final p {
+  font-size: 8px;
+  color: #98a383;
+  margin-top: 15px;
+}
+.field-final > .botanical-sprig {
+  position: absolute;
+  right: 65px;
+  bottom: -20px;
+  width: 210px;
+  transform: rotate(8deg);
+  color: #7a9060;
+}
+.field-page .questions-section {
+  padding-block: 85px;
+}
+.field-page .questions-section h2 {
+  font-size: 41px;
+}
+.field-page .questions-section > div > p {
+  font-size: 11px;
+  color: #879779;
+}
+.field-page .question-list details {
+  border-color: #c9d0bc;
+}
+.field-page .question-list summary {
+  font-size: 12px;
+  color: #5f7352;
+}
+.field-page .question-list details > p {
+  font-size: 11px;
+  color: #7d8c6d;
+}
+.field-page .site-footer {
+  border-color: #c9d0bc;
+}
+.field-page .footer-meta {
+  color: #879779;
+}
+.field-page .site-footer > div > p {
+  font-size: 10px;
+  color: #879779;
+}
+@media (max-width: 1100px) {
+  .field-hero {
+    gap: 30px;
+    padding-block: 50px 65px;
+  }
+  .field-hero h1 {
+    font-size: 76px;
+  }
+  .field-hero-visual {
+    height: 485px;
+    padding-left: 30px;
+  }
+  .field-image-frame {
+    height: 445px;
+  }
+  .hero-sprig {
+    right: -30px;
+    width: 95px;
+  }
+  .field-floating-note {
+    width: 170px;
+    left: -5px;
+    top: 190px;
+    padding: 20px;
+  }
+  .field-floating-note > p {
+    font-size: 24px;
+  }
+  .field-floating-note > div {
+    font-size: 4.5px;
+  }
+  .field-process-inner {
+    gap: 60px;
+  }
+  .field-values {
+    padding-block: 70px 75px;
+  }
+  .field-value-grid {
+    gap: 45px;
+  }
+  .field-page h2 {
+    font-size: 42px;
+  }
+  .field-trail {
+    gap: 22px;
+  }
+  .field-final > .botanical-sprig {
+    right: 50px;
+    width: 180px;
+  }
+}
+@media (max-width: 850px) {
+  .field-hero h1 {
+    font-size: 65px;
+  }
+  .field-hero {
+    gap: 20px;
+    min-height: 590px;
+  }
+  .field-hero-copy > p {
+    font-size: 11px;
+  }
+  .field-hero-visual {
+    height: 440px;
+  }
+  .field-image-frame {
+    height: 410px;
+  }
+  .field-floating-note {
+    width: 150px;
+    padding: 17px;
+    left: -8px;
+  }
+  .field-floating-note > p {
+    font-size: 21px;
+  }
+  .field-note-label {
+    font-size: 5px;
+  }
+  .field-floating-note > div {
+    font-size: 4px;
+  }
+  .field-image-caption {
+    font-size: 10px;
+  }
+  .forest-image-label {
+    left: 25px;
+    bottom: 28px;
+    font-size: 20px;
+  }
+  .forest-image-label > span:last-child {
+    font-size: 16px;
+  }
+  .field-hero-bottom {
+    gap: 40px;
+    margin-top: 30px;
+  }
+  .field-intro {
+    font-size: 8px;
+  }
+  .field-process-inner {
+    gap: 35px;
+  }
+  .field-preview .preview-tabs {
+    gap: 10px;
+    padding-inline: 15px;
+  }
+  .field-preview .preview-tabs button {
+    font-size: 7px;
+    gap: 4px;
+  }
+  .field-preview .preview-tabs button > svg {
+    width: 11px;
+  }
+  .field-preview .preview-content {
+    padding: 22px 19px;
+  }
+  .field-preview .preview-content h3 {
+    font-size: 25px;
+  }
+  .field-preview .insight-list strong {
+    font-size: 8px;
+  }
+  .field-preview .insight-list p {
+    font-size: 7px;
+  }
+  .field-page h2 {
+    font-size: 38px;
+  }
+  .field-trail > div {
+    gap: 11px;
+  }
+  .field-trail p {
+    font-size: 9px;
+  }
+  .field-value-grid {
+    gap: 30px;
+  }
+  .field-values-heading > p {
+    font-size: 10px;
+  }
+  .field-belief p {
+    font-size: 49px;
+  }
+  .field-belief .botanical-sprig {
+    width: 100px;
+    left: 0;
+  }
+  .field-belief .belief-sprig-right {
+    right: 0;
+  }
+  .field-audience {
+    gap: 50px;
+  }
+  .field-final {
+    padding: 45px;
+  }
+  .field-final > .botanical-sprig {
+    right: 20px;
+    width: 160px;
+  }
+}
+@media (max-width: 700px) {
+  .field-page .site-header {
+    padding-block: 22px;
+  }
+  .field-page .brand {
+    font-size: 22px;
+  }
+  .field-page .header-cta {
+    font-size: 8px;
+    padding: 10px;
+    gap: 6px;
+  }
+  .field-page .header-cta svg {
+    width: 12px;
+  }
+  .field-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+    padding-block: 34px 40px;
+  }
+  .field-intro {
+    font-size: 9px;
+    margin-bottom: 25px;
+  }
+  .field-hero h1 {
+    font-size: clamp(50px, 15.6vw, 72px);
+    letter-spacing: -2.3px;
+  }
+  .field-hero-copy > p {
+    font-size: 14px;
+    margin-top: 24px;
+    max-width: 100%;
+  }
+  .field-hero-copy > .button {
+    margin-top: 24px;
+  }
+  .field-hero-note {
+    margin-top: 15px;
+  }
+  .field-hero-bottom {
+    display: none;
+  }
+  .field-hero-visual {
+    height: 420px;
+    padding-left: 60px;
+    margin-inline: 8px;
+  }
+  .field-image-frame {
+    height: 385px;
+    max-width: 280px;
+    margin-right: 6px;
+  }
+  .field-floating-note {
+    top: 125px;
+    left: -4px;
+    width: 170px;
+    padding: 20px;
+  }
+  .field-floating-note > p {
+    font-size: 24px;
+  }
+  .field-note-label {
+    font-size: 6px;
+  }
+  .field-floating-note > div {
+    font-size: 4.5px;
+  }
+  .hero-sprig {
+    right: -10px;
+    bottom: 10px;
+    width: 95px;
+  }
+  .field-image-caption {
+    font-size: 10px;
+    margin-left: -40px;
+    margin-top: 18px;
+  }
+  .forest-image-label {
+    font-size: 20px;
+    left: 26px;
+    bottom: 28px;
+  }
+  .field-whisper {
+    font-size: 9px;
+    line-height: 1.7;
+    padding: 18px 25px;
+    gap: 10px;
+  }
+  .field-whisper > svg {
+    flex-shrink: 0;
+  }
+  .field-values {
+    padding-block: 55px;
+  }
+  .field-values-heading {
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .field-values-heading > span {
+    font-size: 26px;
+  }
+  .field-values-heading > p {
+    font-size: 8px;
+    line-height: 1.8;
+    max-width: 110px;
+  }
+  .field-values-heading > p > br {
+    display: none;
+  }
+  .field-value-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-top: 30px;
+  }
+  .field-value-grid article {
+    position: relative;
+    padding-left: 62px;
+  }
+  .field-value-grid article > span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    width: 40px;
+    height: 40px;
+  }
+  .field-value-grid h3 {
+    font-size: 26px;
+  }
+  .field-value-grid p {
+    font-size: 13px;
+    max-width: 100%;
+    margin-top: 10px;
+  }
+  .field-process {
+    padding-block: 55px 65px;
+  }
+  .field-process-inner {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+  .field-process-copy {
+    order: -1;
+  }
+  .field-page h2 {
+    font-size: 42px;
+  }
+  .field-process-copy h2 br:nth-child(2) {
+    display: none;
+  }
+  .field-trail {
+    gap: 25px;
+    margin-top: 27px;
+  }
+  .field-trail h3 {
+    font-size: 13px;
+  }
+  .field-trail p {
+    font-size: 11px;
+    max-width: 100%;
+    line-height: 1.8;
+  }
+  .field-trail > div {
+    gap: 17px;
+  }
+  .field-notebook {
+    margin-inline: 7px;
+  }
+  .field-preview .preview-tabs {
+    gap: 16px;
+    padding-inline: 20px;
+  }
+  .field-preview .preview-tabs button {
+    font-size: 8px;
+    gap: 5px;
+  }
+  .field-preview .preview-content {
+    padding: 25px;
+  }
+  .field-preview .preview-content h3 {
+    font-size: 29px;
+  }
+  .field-preview .preview-content > p {
+    font-size: 10px;
+  }
+  .field-preview .insight-list strong {
+    font-size: 9px;
+  }
+  .field-preview .insight-list p {
+    font-size: 8px;
+  }
+  .notebook-sprig {
+    left: -30px;
+    width: 70px;
+  }
+  .field-belief {
+    padding-block: 60px 65px;
+  }
+  .field-belief p {
+    font-size: 43px;
+    position: relative;
+    z-index: 1;
+  }
+  .field-belief .botanical-sprig {
+    width: 65px;
+    left: -27px;
+    top: 8px;
+    opacity: 0.6;
+  }
+  .field-belief .belief-sprig-right {
+    right: -27px;
+    left: auto;
+    top: 8px;
+  }
+  .field-belief > div > span:last-of-type {
+    font-size: 8px;
+    margin-top: 20px;
+  }
+  .field-audience {
+    padding-block: 55px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .field-audience-list {
+    gap: 20px;
+  }
+  .field-audience-list p {
+    font-size: 11px;
+  }
+  .field-final {
+    padding: 35px 28px;
+    min-height: 365px;
+  }
+  .field-final h2 {
+    font-size: 38px;
+  }
+  .field-final > .botanical-sprig {
+    right: -5px;
+    width: 110px;
+    bottom: -25px;
+    opacity: 0.6;
+  }
+  .field-final > div {
+    position: relative;
+    z-index: 1;
+  }
+  .field-final p {
+    font-size: 7px;
+  }
+  .field-page .questions-section {
+    padding-block: 65px;
+  }
+  .field-page .questions-section h2 {
+    font-size: 37px;
+  }
+  .field-page .site-footer .brand {
+    font-size: 22px;
+  }
+}
+@media (max-width: 370px) {
+  .field-hero h1 {
+    font-size: clamp(48px, 14.8vw, 55px);
+  }
+  .field-page .header-cta {
+    font-size: 7px;
+    gap: 5px;
+  }
+  .field-hero-visual {
+    padding-left: 40px;
+  }
+  .field-floating-note {
+    width: 150px;
+    padding: 17px;
+  }
+  .field-floating-note > p {
+    font-size: 22px;
+  }
+}

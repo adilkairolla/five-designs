@@ -199,6 +199,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-11-10T20:10:16+05:00",
   },
   {
+    slug: "codex-6-1-sol",
+    folder: "codex-6-1-sol",
+    tool: "Codex",
+    model: "GPT-6.1 Sol",
+    labels: [
+      "Reading Room",
+      "Brighter Brain",
+      "Observatory",
+      "Room to Grow",
+      "Less, but More",
+    ],
+    createdAt: "2026-11-10T20:24:52+05:00",
+  },
+  {
     slug: "gemini-3-pro-preview",
     folder: "gemini-3-pro-preview",
     tool: "Gemini",
