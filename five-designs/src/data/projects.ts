@@ -191,6 +191,14 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-09-04T16:57:48+05:00",
   },
   {
+    slug: "codex-6-1-terra",
+    folder: "codex-6-1-terra",
+    tool: "Codex",
+    model: "GPT-6.1 Terra",
+    labels: ["Editorial", "Signal", "Journal", "Pop", "Still"],
+    createdAt: "2026-11-10T20:10:16+05:00",
+  },
+  {
     slug: "gemini-3-pro-preview",
     folder: "gemini-3-pro-preview",
     tool: "Gemini",
