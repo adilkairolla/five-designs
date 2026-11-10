@@ -74,7 +74,7 @@ function FieldHero() {
       <div className="field-hero-visual">
         <div className="field-image-frame">
           <img
-            src="/images/quiet-reading.jpg"
+            src={`${import.meta.env.BASE_URL}images/quiet-reading.jpg`}
             alt="Sunlight finding its way through a quiet green forest"
             fetchPriority="high"
           />
