@@ -515,6 +515,14 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-05-02T10:30:33+05:00",
   },
   {
+    slug: "opencode-xiaomi-mimo2-6-pro",
+    folder: "opencode-xiaomi-mimo2-6-pro",
+    tool: "Opencode",
+    model: "MiMo-V2.6-Pro",
+    labels: ["Margin", "Signal", "Form", "Soft", "Press"],
+    createdAt: "2026-09-22T02:28:14+05:00",
+  },
+  {
     slug: "opencode-minimax3",
     folder: "opencode-minimax3",
     tool: "Opencode",
