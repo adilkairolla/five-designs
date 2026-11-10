@@ -139,6 +139,20 @@ const projectManifest: DesignProject[] = [
     createdAt: "2026-11-10T20:21:05+05:00",
   },
   {
+    slug: "claude-fable5-2-max-ultracode",
+    folder: "claude-fable5-2-max-ultracode",
+    tool: "Claude",
+    model: "Claude Fable 5.2 (max, ultracode)",
+    labels: [
+      "Square Brackets",
+      "Dust Jacket",
+      "Still Reading",
+      "Keyword Axis",
+      "First Reader",
+    ],
+    createdAt: "2026-11-11T04:42:56+05:00",
+  },
+  {
     slug: "claude-sonnet4-6",
     folder: "claude-sonnet4-6",
     tool: "Claude",

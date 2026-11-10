@@ -1,0 +1,981 @@
+@theme {
+  --color-jacket-yellow: #f6d21b;
+  --color-jacket-black: #000000;
+  --color-jacket-magenta: #d4145a;
+  --color-jacket-white: #ffffff;
+  --color-jacket-fold: #8a7400;
+
+  --font-jacket-display:
+    "Sofia Sans Extra Condensed Variable", "Arial Narrow", "Roboto Condensed", Impact, "Helvetica Neue", Arial,
+    sans-serif;
+  --font-jacket-text:
+    "Baskervville Variable", Baskerville, "Baskerville Old Face", "Hoefler Text", Georgia, "Times New Roman", serif;
+
+  --animate-jacket-flap-out: jacket-flap-out 520ms cubic-bezier(0.2, 0, 0, 1) backwards;
+  --animate-jacket-peek: jacket-peek 380ms cubic-bezier(0.2, 0, 0, 1) 280ms backwards;
+
+  @keyframes jacket-flap-out {
+    from {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes jacket-peek {
+    from {
+      transform: translateY(-3.5rem);
+    }
+  }
+}
+
+@layer base {
+  html:has(.jacket) {
+    background-color: var(--color-jacket-yellow);
+  }
+}
+
+@layer components {
+  .jacket {
+    --jacket-ease: cubic-bezier(0.2, 0, 0, 1);
+    --jacket-spine: 1.75rem;
+    --jacket-spine-inset: 0.1875rem;
+    --jacket-pad: 1rem;
+    --jacket-head: 3.5rem;
+    --jacket-tab: 3.5rem;
+    --jacket-pitch: 3px;
+    --jacket-group: 4;
+    --jacket-ruler-lane: 0.375rem;
+    --jacket-tick-1: 0.25rem;
+    --jacket-tick-10: 0px;
+    --jacket-tick-50: 0px;
+    --jacket-flap-share: max(29.5rem, 44%);
+    --jacket-back-flap: var(--jacket-flap-share);
+    --jacket-letter-max: max(16rem, calc(160svh - 29.5rem));
+    --jacket-flap: max(
+      17.5rem,
+      var(--jacket-flap-share),
+      min(46%, calc(100% - var(--jacket-spine) - 2 * var(--jacket-pad) - var(--jacket-letter-max)))
+    );
+
+    position: relative;
+    overflow-x: clip;
+    font-kerning: normal;
+    font-synthesis: none;
+
+    @media (min-width: 40rem) {
+      --jacket-spine: 2.5rem;
+      --jacket-spine-inset: 0.3125rem;
+      --jacket-pad: 1.5rem;
+      --jacket-ruler-lane: 0.5rem;
+      --jacket-tick-1: 0.3125rem;
+    }
+    @media (min-width: 64rem) {
+      --jacket-spine: 4.5rem;
+      --jacket-spine-inset: 0.5rem;
+      --jacket-pad: 2rem;
+      --jacket-head: 4rem;
+      --jacket-pitch: 2px;
+      --jacket-group: 1;
+      --jacket-ruler-lane: 1.875rem;
+      --jacket-tick-1: 0.375rem;
+      --jacket-tick-10: 0.625rem;
+      --jacket-tick-50: 0.875rem;
+    }
+    @media (min-width: 80rem) {
+      --jacket-spine: 6rem;
+      --jacket-spine-inset: 0.75rem;
+      --jacket-pad: 2.25rem;
+      --jacket-flap-share: min(38%, 40rem);
+      --jacket-ruler-lane: 2.375rem;
+      --jacket-tick-1: 0.5rem;
+      --jacket-tick-10: 0.875rem;
+      --jacket-tick-50: 1.25rem;
+    }
+    @media (min-width: 120rem) {
+      --jacket-letter-max: max(16rem, calc(160svh - 32rem));
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--color-jacket-black);
+      outline-offset: 3px;
+    }
+    ::selection {
+      background-color: var(--color-jacket-black);
+      color: var(--color-jacket-yellow);
+    }
+
+    .jacket-title {
+      font-family: var(--font-jacket-display);
+      font-weight: 800;
+      font-size: clamp(3rem, 2.4rem + 1.2vw, 4.5rem);
+      line-height: 0.9;
+      color: var(--color-jacket-magenta);
+    }
+    .jacket-statement {
+      max-width: 9.4em;
+      font-family: var(--font-jacket-display);
+      font-weight: 800;
+      font-size: clamp(2.5rem, 13cqw, 6.5rem);
+      line-height: 0.95;
+      text-wrap: balance;
+    }
+    .jacket-statement--inside {
+      max-width: none;
+      font-size: clamp(2.75rem, 9.7cqw, 6rem);
+      color: var(--color-jacket-magenta);
+    }
+    .jacket-blockhead {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 2px solid var(--color-jacket-black);
+      font-family: var(--font-jacket-display);
+      font-weight: 800;
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .jacket-subhead {
+      font-family: var(--font-jacket-display);
+      font-weight: 700;
+      font-size: 1.625rem;
+      line-height: 1.1;
+      letter-spacing: 0.005em;
+    }
+    .jacket-wordmark {
+      font-family: var(--font-jacket-display);
+      font-weight: 800;
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+    .jacket-label {
+      font-family: var(--font-jacket-display);
+      font-weight: 700;
+      font-size: 1.125rem;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .jacket-note {
+      font-family: var(--font-jacket-display);
+      font-weight: 600;
+      font-size: 1.25rem;
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+    }
+    .jacket-lead {
+      max-width: 32em;
+      font-size: 1.25rem;
+      line-height: 1.35;
+      text-wrap: pretty;
+    }
+    .jacket-body {
+      max-width: 34em;
+      font-size: 1.125rem;
+      line-height: 1.5;
+    }
+    .jacket-deck {
+      max-width: 34em;
+      font-size: 1.125rem;
+      line-height: 1.5;
+      font-style: italic;
+    }
+    .jacket-term {
+      font-size: 1.25rem;
+      line-height: 1.3;
+      font-style: italic;
+    }
+    .jacket-question {
+      font-size: 1.125rem;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+    @media (min-width: 40rem) {
+      .jacket-lead {
+        font-size: 1.375rem;
+        line-height: 1.3;
+      }
+    }
+    @media (min-width: 64rem) {
+      .jacket-blockhead {
+        margin-top: 3rem;
+      }
+      .jacket-wordmark {
+        font-size: 2.25rem;
+      }
+    }
+    @media (min-width: 80rem) {
+      .jacket-lead {
+        font-size: 1.625rem;
+      }
+    }
+    @media (min-width: 90rem) {
+      .jacket-body,
+      .jacket-deck {
+        font-size: 1.25rem;
+      }
+    }
+    @media (min-width: 120rem) {
+      .jacket-lead {
+        font-size: 2rem;
+      }
+    }
+
+    .jacket-header {
+      position: absolute;
+      z-index: 4;
+      top: 0;
+      left: var(--jacket-spine);
+      right: 0;
+      height: var(--jacket-head);
+      padding-inline: var(--jacket-pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .jacket-half {
+      position: relative;
+      display: grid;
+      grid-template-columns: var(--jacket-spine) minmax(0, 1fr);
+    }
+    .jacket-half--front {
+      grid-template-rows: repeat(3, auto);
+    }
+    .jacket-half--back {
+      grid-template-rows: repeat(2, auto);
+      border-top: 2px solid var(--color-jacket-black);
+    }
+
+    .jacket-spine {
+      grid-column: 1;
+      grid-row: 1 / -1;
+      position: relative;
+      z-index: 3;
+      min-width: 0;
+      background-color: var(--color-jacket-yellow);
+      border-right-width: 2px;
+      border-right-style: dashed;
+    }
+    .jacket-cover {
+      grid-column: 2;
+      grid-row: 1;
+      position: relative;
+      z-index: 2;
+      min-width: 0;
+      background-color: var(--color-jacket-yellow);
+      padding: calc(var(--jacket-head) + 0.75rem) var(--jacket-pad) 1.5rem;
+    }
+    .jacket-flap-cell {
+      grid-column: 2;
+      grid-row: 2;
+      position: relative;
+      z-index: 1;
+      min-width: 0;
+      border-top: 2px dashed var(--color-jacket-fold);
+    }
+    .jacket-flap {
+      padding: 1.5rem var(--jacket-pad) 2.25rem;
+    }
+    .jacket-foot {
+      grid-column: 2;
+      grid-row: 3;
+      position: relative;
+      z-index: 2;
+      min-width: 0;
+      container-type: inline-size;
+      background-color: var(--color-jacket-yellow);
+      border-top: 2px dashed var(--color-jacket-fold);
+      padding: 2.5rem var(--jacket-pad) 2.25rem;
+    }
+    .jacket-back-cover {
+      grid-column: 2;
+      grid-row: 1;
+      min-width: 0;
+      padding: 2.5rem var(--jacket-pad) 2.25rem;
+    }
+    .jacket-back-flap {
+      grid-column: 2;
+      grid-row: 2;
+      position: relative;
+      min-width: 0;
+      padding: 2.5rem var(--jacket-pad) 2.25rem;
+      border-top: 2px dashed var(--color-jacket-fold);
+    }
+
+    @media (min-width: 40rem) {
+      .jacket-cover {
+        padding-bottom: 1.75rem;
+      }
+    }
+
+    @media (min-width: 64rem) {
+      .jacket-half--front {
+        grid-template-columns: var(--jacket-spine) minmax(0, 1fr) var(--jacket-flap);
+        grid-template-rows: auto 1fr;
+      }
+      .jacket-half--back {
+        grid-template-columns: var(--jacket-back-flap) minmax(0, 1fr) var(--jacket-spine);
+        grid-template-rows: auto;
+      }
+      .jacket-cover {
+        min-height: min(100svh, 75rem);
+        border-right: 2px dashed var(--color-jacket-fold);
+      }
+      .jacket-foot {
+        grid-row: 2;
+        border-top: 0;
+        border-right: 2px dashed var(--color-jacket-fold);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      .jacket-flap-cell {
+        grid-column: 3;
+        grid-row: 1 / -1;
+        border-top: 0;
+      }
+      .jacket-flap {
+        padding-top: calc(var(--jacket-head) + 0.5rem);
+      }
+      .jacket-back-flap {
+        grid-column: 1;
+        grid-row: 1;
+        border-top: 0;
+        border-right: 2px dashed var(--color-jacket-fold);
+      }
+      .jacket-back-cover {
+        grid-column: 2;
+        grid-row: 1;
+      }
+      .jacket-spine--right {
+        grid-column: 3;
+        border-right-width: 0;
+        border-left-width: 2px;
+        border-left-style: dashed;
+      }
+
+      .jacket-cover::before,
+      .jacket-foot::after,
+      .jacket-back-flap::before,
+      .jacket-back-flap::after,
+      .jacket-spine::before,
+      .jacket-spine::after {
+        content: "";
+        position: absolute;
+        right: -2px;
+        width: 2px;
+        height: 0.875rem;
+        background-color: var(--color-jacket-black);
+      }
+      .jacket-cover::before,
+      .jacket-back-flap::before,
+      .jacket-spine::before {
+        top: 0;
+      }
+      .jacket-foot::after,
+      .jacket-back-flap::after,
+      .jacket-spine::after {
+        bottom: 0;
+      }
+      .jacket-spine--right::before,
+      .jacket-spine--right::after {
+        right: auto;
+        left: -2px;
+      }
+    }
+
+    .jacket-spine-band {
+      position: sticky;
+      top: 0;
+      height: 100svh;
+      overflow: clip;
+    }
+    @media (max-height: 28rem) {
+      .jacket-spine-band {
+        position: static;
+        height: auto;
+        overflow: visible;
+        min-height: calc(var(--jacket-page-groups) * var(--jacket-pitch) + 3rem);
+      }
+    }
+    @media (min-width: 64rem) {
+      .jacket-spine-band {
+        position: static;
+        height: auto;
+        overflow: visible;
+        min-height: calc(var(--jacket-pages) * var(--jacket-pitch) + 3rem);
+      }
+    }
+    .jacket-spine-lettering {
+      position: absolute;
+      top: 1rem;
+      left: var(--jacket-spine-inset);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      writing-mode: vertical-rl;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .jacket-spine-title {
+      font-family: var(--font-jacket-display);
+      font-weight: 800;
+      font-size: 1.0625rem;
+    }
+    .jacket-spine-line {
+      font-family: var(--font-jacket-display);
+      font-weight: 700;
+      font-size: 0.9375rem;
+      letter-spacing: 0.02em;
+    }
+    @media (min-width: 40rem) {
+      .jacket-spine-lettering {
+        gap: 1rem;
+      }
+      .jacket-spine-title {
+        font-size: 1.375rem;
+      }
+      .jacket-spine-line {
+        font-size: 1.0625rem;
+      }
+    }
+    @media (min-width: 64rem) {
+      .jacket-spine-title {
+        font-size: 1.875rem;
+      }
+      .jacket-spine-line {
+        font-size: 1.25rem;
+      }
+    }
+    @media (min-width: 80rem) {
+      .jacket-spine-lettering {
+        gap: 1.5rem;
+      }
+      .jacket-spine-title {
+        font-size: 2.5rem;
+      }
+      .jacket-spine-line {
+        font-size: 1.5rem;
+      }
+    }
+    .jacket-ruler {
+      --jacket-lines: var(--jacket-page-groups);
+      --jacket-ruler-x: right;
+      position: absolute;
+      top: 1rem;
+      right: 0;
+      width: var(--jacket-ruler-lane);
+      height: calc(var(--jacket-lines) * var(--jacket-pitch));
+      background-image:
+        linear-gradient(to bottom, var(--color-jacket-black) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--color-jacket-black) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--color-jacket-black) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--color-jacket-black) 1px, transparent 1px);
+      background-repeat: repeat-y;
+      background-size:
+        100% calc(100 / var(--jacket-group) * var(--jacket-pitch)),
+        var(--jacket-tick-50) calc(50 * var(--jacket-pitch)),
+        var(--jacket-tick-10) calc(10 * var(--jacket-pitch)),
+        var(--jacket-tick-1) var(--jacket-pitch);
+      background-position:
+        var(--jacket-ruler-x) calc((100 / var(--jacket-group) - 1) * var(--jacket-pitch)),
+        var(--jacket-ruler-x) calc(49 * var(--jacket-pitch)),
+        var(--jacket-ruler-x) calc(9 * var(--jacket-pitch)),
+        var(--jacket-ruler-x) 0;
+    }
+    .jacket-ruler-mark {
+      display: none;
+    }
+    @media (min-width: 64rem) {
+      .jacket-ruler {
+        --jacket-lines: var(--jacket-pages);
+      }
+      .jacket-ruler-mark {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: calc((var(--jacket-at) - 1) * var(--jacket-pitch) + 0.25rem);
+        writing-mode: vertical-rl;
+        line-height: 1;
+        font-family: var(--font-jacket-display);
+        font-weight: 700;
+        font-size: 0.875rem;
+      }
+      .jacket-spine--right {
+        display: flex;
+      }
+      .jacket-spine--right .jacket-spine-band {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding-right: var(--jacket-spine-inset);
+      }
+      .jacket-spine--right .jacket-spine-lettering {
+        position: sticky;
+        left: auto;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      .jacket-spine--right .jacket-spine-measure {
+        display: none;
+      }
+      .jacket-spine--right .jacket-ruler {
+        --jacket-ruler-x: left;
+        right: auto;
+        left: 0;
+      }
+      .jacket-spine--right .jacket-ruler-mark {
+        left: auto;
+        right: 0;
+      }
+    }
+    @media (min-width: 80rem) {
+      .jacket-ruler-mark {
+        font-size: 1rem;
+      }
+    }
+
+    .jacket-lettering {
+      display: block;
+      width: min(100%, var(--jacket-letter-max));
+      height: auto;
+      aspect-ratio: 1000 / 624.4;
+      overflow: visible;
+      fill: currentColor;
+      font-family: var(--font-jacket-display);
+      font-weight: 800;
+      font-variant-ligatures: none;
+    }
+
+    .jacket-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.5rem;
+      padding-inline: 1.25rem;
+      border: 2px solid var(--color-jacket-black);
+      background-color: var(--color-jacket-black);
+      color: var(--color-jacket-yellow);
+      font-family: var(--font-jacket-display);
+      font-weight: 800;
+      font-size: 1.375rem;
+      line-height: 1;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .jacket-button:active {
+      transform: translateY(1px);
+    }
+    .jacket-button--quiet {
+      background-color: transparent;
+      color: var(--color-jacket-black);
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 0.02em;
+    }
+    .jacket-button--small {
+      min-height: 2.75rem;
+      padding-inline: 0.875rem;
+      font-size: 1.125rem;
+    }
+    @media (min-width: 80rem) {
+      .jacket-button {
+        font-size: 1.5rem;
+        padding-inline: 1.75rem;
+      }
+      .jacket-button--quiet {
+        font-size: 1.25rem;
+        padding-inline: 1.25rem;
+      }
+      .jacket-button--small {
+        font-size: 1.125rem;
+        padding-inline: 0.875rem;
+      }
+    }
+    .jacket-cite {
+      display: inline-block;
+      min-width: 2.75rem;
+      padding-inline: 0.25rem;
+      text-align: center;
+      vertical-align: baseline;
+      font-family: var(--font-jacket-display);
+      font-weight: 700;
+      font-size: 1.125rem;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.18em;
+      cursor: pointer;
+    }
+    .jacket-cite[aria-current="true"] {
+      background-color: var(--color-jacket-black);
+      color: var(--color-jacket-yellow);
+    }
+    .jacket-textlink {
+      padding-block: 0.375rem;
+      font-family: var(--font-jacket-display);
+      font-weight: 700;
+      font-size: 1.125rem;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.18em;
+      cursor: pointer;
+    }
+    @media (hover: hover) {
+      .jacket-button:hover {
+        background-color: transparent;
+        color: var(--color-jacket-black);
+      }
+      .jacket-button--quiet:hover,
+      .jacket-cite:hover,
+      .jacket-textlink:hover {
+        background-color: var(--color-jacket-black);
+        color: var(--color-jacket-yellow);
+      }
+    }
+
+    .jacket-action {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 0.75rem 1.5rem;
+    }
+    .jacket-action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      flex: none;
+      max-width: 100%;
+    }
+    .jacket-status {
+      flex: 1 1 21rem;
+      min-width: 0;
+      min-height: 6rem;
+    }
+    .jacket-action--closing .jacket-action-buttons {
+      flex: 1 1 100%;
+    }
+    .jacket-action--closing .jacket-button {
+      flex: 1;
+      min-height: 4.5rem;
+      font-size: 2rem;
+    }
+
+    .jacket-sentence {
+      scroll-margin-top: 6rem;
+    }
+
+    .jacket-bookmark {
+      position: relative;
+      margin-top: 1.25rem;
+      max-width: 28rem;
+    }
+    .jacket-bookmark-pull {
+      display: none;
+      position: absolute;
+      z-index: 2;
+      inset: 0 0 auto;
+      height: calc(0.25rem + var(--jacket-tab));
+      cursor: pointer;
+    }
+    .jacket-bookmark-slit {
+      height: 0.25rem;
+      border-radius: 9999px;
+      background-color: var(--color-jacket-black);
+    }
+    .jacket-bookmark-lane {
+      position: relative;
+      z-index: 1;
+      overflow: clip;
+    }
+    .jacket-bookmark-note {
+      display: none;
+    }
+    .jacket-bookmark-end {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      height: var(--jacket-tab);
+      padding-inline: 1rem;
+    }
+    .jacket-bookmark-name {
+      font-family: var(--font-jacket-display);
+      font-weight: 800;
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .jacket-bookmark-deck {
+      padding-inline: 1rem;
+    }
+    .jacket-bookmark-hints {
+      display: grid;
+      gap: 1.25rem;
+      padding: 0.75rem 1rem 1rem;
+    }
+    @media (min-width: 40rem) {
+      .jacket-bookmark-end,
+      .jacket-bookmark-deck,
+      .jacket-bookmark-hints {
+        padding-inline: 1.25rem;
+      }
+    }
+    @media (min-width: 64rem) {
+      .jacket-bookmark {
+        max-width: none;
+      }
+      .jacket-bookmark-pull {
+        display: block;
+      }
+      .jacket-bookmark-note {
+        display: block;
+        position: absolute;
+        top: calc(var(--jacket-tab) + 1rem);
+        left: 0;
+        right: 0;
+      }
+      .jacket-bookmark-peek {
+        position: relative;
+        z-index: 1;
+      }
+      .jacket-bookmark-strip {
+        transform: translateY(calc(-100% + var(--jacket-tab)));
+      }
+      .jacket-bookmark[data-position="out"] .jacket-bookmark-strip {
+        transform: translateY(0);
+      }
+      .jacket-bookmark-action {
+        transition: opacity 160ms linear;
+      }
+      .jacket-bookmark[data-position="out"] .jacket-bookmark-action {
+        opacity: 0;
+      }
+    }
+    @media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+      .jacket-bookmark-peek {
+        transition: transform 160ms var(--jacket-ease);
+      }
+      .jacket-bookmark-strip {
+        transition: transform 340ms var(--jacket-ease);
+      }
+      .jacket-bookmark[data-position="out"] .jacket-bookmark-strip {
+        transition-duration: 460ms;
+      }
+      .jacket-bookmark[data-position="tucked"] .jacket-bookmark-pull:focus-visible ~ .jacket-bookmark-lane .jacket-bookmark-peek {
+        transform: translateY(0.25rem);
+      }
+    }
+    @media (min-width: 64rem) and (hover: hover) and (prefers-reduced-motion: no-preference) {
+      .jacket-bookmark[data-position="tucked"] .jacket-bookmark-pull:hover ~ .jacket-bookmark-lane .jacket-bookmark-peek {
+        transform: translateY(0.25rem);
+      }
+    }
+
+    .jacket-quote {
+      --jacket-quote-size: 1.25rem;
+      position: relative;
+      padding-left: calc(0.474 * var(--jacket-quote-size) + 1rem);
+      scroll-margin-top: 1.5rem;
+    }
+    .jacket-quote::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.25rem;
+      bottom: 0.25rem;
+      width: 0.375rem;
+      background-color: var(--color-jacket-black);
+      opacity: 0;
+      transition: opacity 160ms linear;
+    }
+    .jacket-quote[data-marked="true"]::before {
+      opacity: 1;
+    }
+    .jacket-quote-text {
+      max-width: 30em;
+      font-size: var(--jacket-quote-size);
+      line-height: 1.4;
+      text-indent: -0.474em;
+      text-wrap: pretty;
+    }
+    .jacket-quote-text::before {
+      content: "\201C";
+    }
+    .jacket-quote-text::after {
+      content: "\201D";
+    }
+    .jacket-quote-cite {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.25rem 1rem;
+      margin-top: 0.5rem;
+    }
+    @media (min-width: 40rem) {
+      .jacket-quote {
+        --jacket-quote-size: 1.875rem;
+      }
+      .jacket-quote-text {
+        line-height: 1.3;
+      }
+    }
+    @media (min-width: 64rem) {
+      .jacket-quote {
+        --jacket-quote-size: calc(1.2rem + 1.84vw);
+      }
+      .jacket-quote-text {
+        line-height: 1.22;
+      }
+      .jacket-quote-cite {
+        margin-top: 0.75rem;
+      }
+      .jacket-quote-page {
+        font-size: 1.5rem;
+      }
+    }
+    @media (min-width: 80rem) {
+      .jacket-quote {
+        --jacket-quote-size: calc(1.9rem + 1.25vw);
+      }
+    }
+    @media (min-width: 90rem) {
+      .jacket-quote {
+        --jacket-quote-size: calc(1.95rem + 1.33vw);
+      }
+    }
+    @media (min-width: 105rem) {
+      .jacket-quote {
+        --jacket-quote-size: min(4.75rem, calc(3.37vw - 0.19rem));
+      }
+    }
+    .jacket-quote-page {
+      margin-left: -0.25rem;
+      padding-inline: 0.25rem;
+    }
+    .jacket-quote[data-marked="true"] .jacket-quote-page {
+      background-color: var(--color-jacket-black);
+      color: var(--color-jacket-yellow);
+    }
+
+    .jacket-list {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.25rem;
+    }
+    .jacket-list--loose {
+      gap: 1.5rem;
+    }
+    .jacket-list--quotes {
+      gap: 2.25rem;
+    }
+    @media (min-width: 40rem) {
+      .jacket-list--quotes {
+        gap: 3rem;
+      }
+    }
+    @media (min-width: 64rem) {
+      .jacket-list--quotes {
+        gap: 3.5rem;
+      }
+    }
+    .jacket-chapters {
+      width: 100%;
+      margin-top: 0.75rem;
+      font-family: var(--font-jacket-display);
+      font-weight: 600;
+      font-size: 1.25rem;
+      line-height: 1.3;
+      letter-spacing: 0.01em;
+    }
+    .jacket-chapters-numeral {
+      width: 2.25rem;
+      padding-block: 0.1875rem;
+      font-weight: 700;
+      white-space: nowrap;
+      vertical-align: top;
+      text-align: left;
+    }
+    .jacket-chapters-title {
+      padding-block: 0.1875rem;
+      font-weight: 600;
+      overflow-wrap: anywhere;
+      vertical-align: top;
+      text-align: left;
+    }
+    .jacket-chapters-page {
+      width: 2.5rem;
+      padding-block: 0.1875rem;
+      text-align: right;
+      white-space: nowrap;
+      vertical-align: top;
+    }
+
+    .jacket-inside {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .jacket-inside-main {
+      min-width: 0;
+      container-type: inline-size;
+      padding: 3.5rem var(--jacket-pad);
+    }
+    .jacket-inside-side {
+      min-width: 0;
+      padding: 0 var(--jacket-pad) 3.5rem;
+    }
+    .jacket-steps {
+      display: grid;
+      gap: 0.35em;
+    }
+    .jacket-step {
+      display: grid;
+      grid-template-columns: 1.1em minmax(0, 1fr);
+      font-family: var(--font-jacket-display);
+      font-weight: 800;
+      font-size: clamp(2rem, 6.4cqw, 3.5rem);
+      line-height: 1.02;
+    }
+    @media (min-width: 64rem) {
+      .jacket-inside {
+        grid-template-columns: minmax(0, 1fr) var(--jacket-back-flap);
+      }
+      .jacket-inside-main {
+        padding-block: 5rem;
+        border-right: 2px dashed var(--color-jacket-fold);
+      }
+      .jacket-inside-side {
+        padding-block: 5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+    .jacket-footer {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 1.5rem var(--jacket-pad) 2.5rem;
+      border-top: 2px solid var(--color-jacket-black);
+    }
+    .jacket-footer-main {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem 2rem;
+    }
+    @media (min-width: 64rem) {
+      .jacket-footer {
+        grid-template-columns: minmax(0, 1fr) var(--jacket-back-flap);
+        gap: 0;
+        padding-inline: 0;
+      }
+      .jacket-footer-main,
+      .jacket-footer-side {
+        padding-inline: var(--jacket-pad);
+      }
+    }
+  }
+}

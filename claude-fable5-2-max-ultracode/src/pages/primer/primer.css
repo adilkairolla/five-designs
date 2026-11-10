@@ -1,0 +1,318 @@
+@theme {
+  --color-primer-paper: #ffffff;
+  --color-primer-ink: #1b1b3a;
+  --color-primer-blue: #2b59c3;
+  --color-primer-blue-deep: #1f459c;
+  --color-primer-red: #d7263d;
+  --color-primer-blotter: #e6eefb;
+
+  --font-primer-slab: "Besley Variable", Rockwell, Georgia, "Times New Roman", serif;
+  --font-primer-sans: "Andika", "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+
+  --radius-primer-button: 0.375rem;
+
+  --ease-primer-turn-away: cubic-bezier(0.4, 0, 1, 1);
+  --ease-primer-turn-in: cubic-bezier(0, 0, 0.2, 1);
+
+  --animate-primer-rule: primer-rule 300ms cubic-bezier(0.2, 0, 0, 1) backwards;
+  --animate-primer-wipe: primer-wipe 300ms cubic-bezier(0.2, 0, 0, 1) backwards;
+  --animate-primer-wipe-back: primer-wipe-back 300ms cubic-bezier(0.2, 0, 0, 1) backwards;
+  --animate-primer-line: primer-line 150ms linear backwards;
+
+  @keyframes primer-rule {
+    from {
+      transform: scaleX(0);
+    }
+  }
+
+  @keyframes primer-wipe {
+    from {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes primer-wipe-back {
+    from {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes primer-line {
+    from {
+      opacity: 0;
+    }
+  }
+}
+
+@layer base {
+  html:has(.primer) {
+    background-color: var(--color-primer-paper);
+  }
+}
+
+@layer components {
+  .primer {
+    font-synthesis: none;
+  }
+
+  .primer :where(button):focus-visible {
+    outline: 0.1875rem solid var(--color-primer-ink);
+    outline-offset: 0.1875rem;
+  }
+
+  /* The ring reaches 0.375rem outside a button, so a button the browser scrolls
+     to on focus must not land flush with the window edge. */
+  .primer :where(button) {
+    scroll-margin: 0.5rem;
+  }
+
+  .primer .primer-text-button,
+  .primer .primer-headword {
+    text-decoration-line: underline;
+    text-decoration-color: var(--color-primer-blue);
+    text-decoration-thickness: 0.125rem;
+    text-decoration-skip-ink: none;
+    text-underline-offset: 0.06em;
+  }
+
+  .primer .primer-text-button {
+    margin-inline: -0.25rem;
+    padding-inline: 0.25rem;
+    cursor: pointer;
+  }
+
+  .primer .primer-text-button--inline {
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  .primer .primer-text-button--inline:focus-visible {
+    outline-width: 0.125rem;
+    outline-offset: 0;
+  }
+
+  .primer .primer-text-button,
+  .primer .primer-word-row {
+    border-radius: var(--radius-primer-button);
+  }
+
+  .primer .primer-plain-spread {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 1.5rem;
+  }
+
+  .primer .primer-big-lines {
+    font-family: var(--font-primer-slab);
+    font-size: min(calc(100cqi / 10.4), 6.25rem, max(3.5rem, calc((100svh - 20rem) / 5.2)));
+    font-weight: 500;
+    line-height: 1.3;
+    white-space: nowrap;
+    isolation: isolate;
+  }
+
+  .primer .primer-big-line {
+    display: block;
+  }
+
+  .primer .primer-copybook {
+    --primer-rule: max(0.0625rem, 0.028em);
+    display: inline-block;
+    position: relative;
+    width: 0;
+    height: 0;
+    vertical-align: baseline;
+  }
+
+  .primer .primer-copybook-rule {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    width: 100cqi;
+    height: var(--primer-rule);
+    background-color: var(--color-primer-blue);
+    transform-origin: left center;
+  }
+
+  .primer .primer-copybook-rule--cap {
+    bottom: 0.75em;
+  }
+
+  .primer .primer-copybook-rule--mid {
+    bottom: calc(0.52em - var(--primer-rule) / 2);
+    overflow: hidden;
+    background-color: transparent;
+  }
+
+  .primer .primer-copybook-dashes {
+    display: block;
+    height: 100%;
+    background: repeating-linear-gradient(
+      to right,
+      var(--color-primer-red) 0 0.22em,
+      transparent 0.22em 0.36em
+    );
+  }
+
+  .primer .primer-copybook-rule--base {
+    top: 0;
+  }
+
+  .primer .primer-lesson-label {
+    font-family: var(--font-primer-slab);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-primer-red);
+  }
+
+  .primer .primer-lesson-title,
+  .primer .primer-lesson-lines {
+    font-family: var(--font-primer-slab);
+    font-size: min(calc(100cqi / 13.7), 2.5rem);
+    line-height: 1.4;
+  }
+
+  .primer .primer-lesson-title {
+    display: block;
+    margin-block-end: 0.4em;
+    font-weight: 800;
+  }
+
+  .primer .primer-lesson-lines {
+    font-weight: 500;
+  }
+
+  .primer .primer-sentence-button {
+    --primer-hang: min(0.4em, 0.625rem);
+    display: inline-block;
+    margin-block-start: 0.22em;
+    margin-inline-start: calc(-1 * var(--primer-hang));
+    padding: 0.04em var(--primer-hang) 0.115em;
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+
+  .primer .primer-strip {
+    display: grid;
+    margin-inline: -1rem;
+  }
+
+  .primer .primer-strip-face {
+    grid-area: 1 / 1;
+    padding: 0.875rem 1rem 1rem;
+    border-block: 0.125rem solid var(--color-primer-blue);
+    background-color: var(--color-primer-paper);
+  }
+
+  .primer .primer-strip-face--answer {
+    background-color: var(--color-primer-blotter);
+  }
+
+  .primer .primer-strip-face[data-shown="false"] {
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .primer .primer-strip-action {
+    grid-area: 2 / 1;
+    justify-self: start;
+    min-width: 11.75rem;
+    margin: 0.75rem 0 0 1rem;
+  }
+
+  @supports (width: round(1px, 1px)) {
+    .primer .primer-copybook {
+      --primer-rule: max(0.0625rem, round(0.028em, 0.0625rem));
+    }
+  }
+
+  @media (hover: hover) {
+    .primer .primer-text-button:hover,
+    .primer .primer-word-row:hover .primer-headword {
+      text-decoration-color: var(--color-primer-ink);
+    }
+  }
+
+  @media (min-width: 40rem) {
+    .primer .primer-sentence-button {
+      --primer-hang: min(0.4em, 2.125rem);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .primer .primer-plain-spread {
+      grid-template-columns: minmax(0, 1fr) clamp(19rem, 27.5vw, 26rem);
+      column-gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
+    }
+
+    .primer .primer-lesson-title,
+    .primer .primer-lesson-lines {
+      font-size: min(calc(100cqi / 13.7), 3rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .primer .primer-copybook-rule {
+      animation: var(--animate-primer-rule);
+    }
+
+    /* Scaling would stretch the dashes while the rule draws: the dashed rule is
+       wiped in by two equal and opposite translations instead. */
+    .primer .primer-copybook-rule--mid {
+      animation: var(--animate-primer-wipe);
+    }
+
+    .primer .primer-copybook-dashes {
+      animation: var(--animate-primer-wipe-back);
+    }
+
+    .primer .primer-hero-text {
+      animation: var(--animate-primer-line);
+    }
+
+    .primer .primer-big-line:nth-child(1) .primer-hero-text {
+      animation-delay: 300ms;
+    }
+
+    .primer .primer-big-line:nth-child(2) .primer-hero-text {
+      animation-delay: 550ms;
+    }
+
+    .primer .primer-big-line:nth-child(3) .primer-hero-text {
+      animation-delay: 800ms;
+    }
+
+    .primer .primer-big-line:nth-child(4) .primer-hero-text {
+      animation-delay: 1050ms;
+    }
+
+    .primer .primer-strip-face[data-shown="true"] {
+      transition:
+        transform 90ms var(--ease-primer-turn-in) 90ms,
+        opacity 0s linear 90ms;
+    }
+
+    .primer .primer-strip-face--question[data-shown="false"] {
+      transform: perspective(40rem) rotateX(90deg);
+      transition:
+        transform 90ms var(--ease-primer-turn-away),
+        opacity 0s linear 90ms;
+    }
+
+    .primer .primer-strip-face--answer[data-shown="false"] {
+      transform: perspective(40rem) rotateX(-90deg);
+      transition:
+        transform 90ms var(--ease-primer-turn-away),
+        opacity 0s linear 90ms;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .primer .primer-strip-face {
+      transition: opacity 120ms linear;
+    }
+  }
+}

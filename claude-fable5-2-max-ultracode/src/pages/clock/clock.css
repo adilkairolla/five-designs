@@ -1,0 +1,314 @@
+@theme {
+  --color-clock-ground: #4a1599;
+  --color-clock-pane: #2b0a5e;
+  --color-clock-white: #ffffff;
+  --color-clock-unread: #b5a3f0;
+  --color-clock-amber: #ffb534;
+  --color-clock-cell: #7b5cd6;
+
+  --font-clock-sans: "Archivo Variable", "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --ease-clock-settle: cubic-bezier(0.2, 0, 0, 1);
+  --animate-clock-arrive: clock-arrive 320ms var(--ease-clock-settle) both;
+
+  @keyframes clock-arrive {
+    from {
+      opacity: 0;
+      transform: translateY(0.375rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  /* The scroll padding keeps a control reached by keyboard a rem clear of the sticky header.
+     Jump targets take that rem back (-scroll-mt-4) so a section starts flush under it. */
+  html:has(.clock) {
+    background-color: var(--color-clock-ground);
+    scroll-padding-top: 4.5rem;
+  }
+}
+
+@layer components {
+  .clock {
+    font-variant-numeric: tabular-nums;
+    font-synthesis: none;
+    overflow-x: clip;
+  }
+  .clock ::selection {
+    background-color: var(--color-clock-amber);
+    color: var(--color-clock-pane);
+  }
+  .clock :focus-visible,
+  .clock .clock-btn:focus-visible {
+    outline: 2px solid var(--color-clock-white);
+    outline-offset: 3px;
+  }
+
+  .clock .clock-wrap {
+    container: clock-wrap / inline-size;
+    margin-inline: auto;
+    max-width: 80rem;
+  }
+
+  .clock .clock-long {
+    font-stretch: 62%;
+  }
+  .clock .clock-short {
+    font-stretch: 125%;
+  }
+
+  .clock .clock-h1 {
+    font-weight: 700;
+    font-size: min(3.5rem, calc(100cqi / 11.7));
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+  }
+  .clock .clock-h1 > span {
+    display: block;
+  }
+  .clock .clock-live {
+    display: block;
+    font-weight: 500;
+    font-size: min(3.5rem, calc(100cqi / 11.7));
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .clock .clock-live > span {
+    display: block;
+  }
+  @container clock-wrap (min-width: 30.5rem) {
+    .clock .clock-live {
+      font-size: min(2.5rem, calc(100cqi / 17.4));
+    }
+    .clock .clock-live > span {
+      display: inline;
+    }
+  }
+  @container clock-wrap (min-width: 73rem) {
+    .clock .clock-h1 {
+      font-size: min(3.5rem, calc(100cqi / 21));
+    }
+    .clock .clock-h1 > span {
+      display: inline;
+    }
+  }
+  .clock .clock-h2 {
+    font-weight: 700;
+    font-size: clamp(1.75rem, calc(1.2rem + 2.2cqi), 2.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  .clock .clock-premise {
+    display: block;
+    font-weight: 500;
+    font-size: clamp(1.75rem, calc(100cqi / 23.1), 3.5rem);
+    line-height: 1.1;
+  }
+
+  .clock .clock-window {
+    position: relative;
+    height: calc(var(--clock-lines, 8) * 1.3125rem);
+    max-width: 24.5rem;
+    overflow: hidden;
+  }
+  .clock .clock-book {
+    font-stretch: 75%;
+    font-weight: 450;
+    font-size: 0.9375rem;
+    line-height: 1.3125rem;
+    letter-spacing: 0.01em;
+    text-wrap: wrap;
+    color: var(--color-clock-unread);
+  }
+  .clock .clock-book p[data-indent] {
+    text-indent: 1.25em;
+  }
+  .clock .clock-word[data-read] {
+    color: var(--color-clock-amber);
+  }
+  .clock .clock-status {
+    font-stretch: 62%;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+  .clock .clock-countdown {
+    font-stretch: 125%;
+    font-weight: 600;
+    font-size: min(5rem, calc(100cqi / 5.45));
+    line-height: 1;
+    letter-spacing: -0.01em;
+    /* Pulls the first glyph's side bearing out so the figures stand flush with the bar's end. */
+    text-indent: -0.045em;
+    white-space: nowrap;
+    min-width: 5.15em;
+  }
+  .clock .clock-summary {
+    font-stretch: 125%;
+    font-weight: 400;
+    font-size: clamp(1.125rem, calc(0.72rem + 1.48cqi), 1.75rem);
+    line-height: 1.4;
+    max-width: 38em;
+    color: var(--color-clock-unread);
+  }
+  .clock .clock-cite {
+    font-stretch: 62%;
+    font-weight: 500;
+    font-size: max(0.875rem, 0.6em);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    color: var(--color-clock-unread);
+  }
+
+  .clock .clock-strip {
+    --clock-cell-w: 0.3125rem;
+    --clock-cell-h: 0.5rem;
+    --clock-cell-gap: 0.0625rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--clock-cell-w));
+    grid-auto-rows: var(--clock-cell-h);
+    gap: var(--clock-cell-gap);
+  }
+  .clock .clock-cell {
+    background-color: var(--color-clock-cell);
+  }
+  .clock .clock-cell[data-read] {
+    background-color: var(--color-clock-amber);
+  }
+  @media (min-width: 64rem) {
+    .clock .clock-strip {
+      --clock-cell-w: 0.375rem;
+      --clock-cell-h: 0.625rem;
+      --clock-cell-gap: 0.125rem;
+    }
+  }
+  @media (min-width: 80rem) {
+    .clock .clock-window {
+      --clock-lines: 6;
+    }
+    .clock .clock-strip {
+      --clock-cell-w: 0.4375rem;
+      --clock-cell-h: 0.75rem;
+    }
+    .clock .clock-countdown {
+      font-size: 6rem;
+    }
+  }
+  /* A short window keeps the bar and the countdown on the first screen by showing fewer lines of the book. */
+  @media (min-width: 64rem) and (max-width: 79.99rem) and (max-height: 55rem),
+    (min-width: 80rem) and (max-height: 49rem) {
+    .clock .clock-window {
+      --clock-lines: 4;
+    }
+    .clock .clock-strip {
+      --clock-cell-w: 0.3125rem;
+      --clock-cell-h: 0.4375rem;
+      --clock-cell-gap: 0.0625rem;
+    }
+  }
+
+  .clock .clock-when {
+    font-stretch: 62%;
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+  .clock .clock-row {
+    position: relative;
+  }
+  .clock .clock-row[data-here]::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: -1px;
+    height: 2px;
+    background-color: var(--color-clock-amber);
+  }
+  .clock .clock-here {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);
+    padding-right: 0.5rem;
+    background-color: var(--color-clock-ground);
+    color: var(--color-clock-amber);
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1;
+  }
+  .clock .clock-quote::before {
+    content: "\201C";
+  }
+  .clock .clock-quote::after {
+    content: "\201D";
+  }
+  .clock .clock-veiled {
+    color: transparent;
+    user-select: none;
+  }
+  .clock .clock-veiled .clock-word {
+    text-decoration-line: line-through;
+    text-decoration-color: var(--color-clock-cell);
+    text-decoration-thickness: 0.56em;
+  }
+
+  .clock .clock-btn {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding-inline: 1rem;
+    font-weight: 650;
+    font-size: 0.9375rem;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+  }
+  .clock .clock-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--color-clock-white);
+    opacity: 0;
+    transition: opacity 150ms var(--ease-clock-settle);
+  }
+  .clock .clock-btn-primary {
+    background-color: var(--color-clock-amber);
+    color: var(--color-clock-pane);
+  }
+  .clock .clock-btn-ghost {
+    color: var(--color-clock-white);
+    box-shadow: inset 0 0 0 2px var(--color-clock-white);
+  }
+  @media (hover: hover) {
+    .clock .clock-btn-primary:hover::before {
+      opacity: 0.22;
+    }
+    .clock .clock-btn-ghost:hover::before {
+      opacity: 0.12;
+    }
+  }
+  .clock .clock-btn:active::before {
+    opacity: 0.32;
+    transition: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .clock .clock-btn::before {
+      transition: none;
+    }
+  }
+}

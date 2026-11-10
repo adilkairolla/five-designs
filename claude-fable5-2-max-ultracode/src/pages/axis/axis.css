@@ -1,0 +1,334 @@
+@theme static {
+  --color-axis-paper: #f4f5f0;
+  --color-axis-bar: #d6ead3;
+  --color-axis-band: #0a6b43;
+  --color-axis-band-deep: #075234;
+  --color-axis-ink: #000000;
+  --color-axis-ref: #56605a;
+  --color-axis-key: #ffffff;
+  --font-axis-mono: "Chivo Mono Variable", ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
+  --ease-axis-settle: cubic-bezier(0.2, 0, 0, 1);
+  --animate-axis-settle: axis-settle 600ms var(--ease-axis-settle) backwards;
+  --animate-axis-appear: axis-appear 300ms linear backwards;
+
+  @keyframes axis-settle {
+    from { transform: translateX(var(--axis-from, 0px)); }
+    to { transform: translateX(0px); }
+  }
+  @keyframes axis-appear {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+@layer base {
+  html:has(.axis) { background-color: var(--color-axis-paper); }
+  html:has(.axis-readout[data-open="true"]) { scroll-padding-block-end: 12rem; }
+}
+
+@layer components {
+  .axis {
+    /* One cell is the face's advance. Not `ch`: on an element that is animating when the web
+       font arrives (the stripe, the headline rows) a `ch` keeps the fallback's width for good,
+       and the band would sit a pixel off its rows. */
+    --axis-cell: 0.6em;
+    --axis-edge: 0px;
+    --axis-left: 0px;
+    --axis-band-x: 0px;
+    --axis-band-w: calc(12 * var(--axis-cell));
+    --axis-measure: calc(60.25 * var(--axis-cell));
+    --axis-key-scale: 1.25;
+    --axis-head-scale: 1;
+    position: relative;
+    isolation: isolate; /* keeps the stripe's negative z-index above the paper and under the text */
+    overflow-x: clip;
+    font-family: var(--font-axis-mono);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625;
+    letter-spacing: 0;
+    word-spacing: 0;
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0;
+    font-synthesis: none;
+    color: var(--color-axis-ink);
+    background-color: var(--color-axis-paper);
+    background-image: repeating-linear-gradient(to bottom,
+      var(--color-axis-bar) 0, var(--color-axis-bar) calc(1.625em * 3),
+      transparent calc(1.625em * 3), transparent calc(1.625em * 6));
+  }
+  @media (min-width: 48rem) {
+    .axis {
+      --axis-edge: calc(2 * var(--axis-cell));
+      --axis-left: calc(28 * var(--axis-cell));
+      --axis-band-x: calc(var(--axis-edge) + var(--axis-left) + var(--axis-cell));
+      --axis-head-scale: var(--axis-key-scale);
+    }
+  }
+  /* A whole-pixel size keeps every line a multiple of 1/8px, which the browser lays out exactly;
+     a fractional line is floored a little on each row and the text drifts off the paper bands. */
+  @media (min-width: 74rem) {
+    .axis {
+      font-size: clamp(1rem, calc(100vw / 74), 1.5rem);
+      font-size: clamp(1rem, round(down, calc(100vw / 74), 1px), 1.5rem);
+      --axis-edge: max(calc(2 * var(--axis-cell)), calc((100% - 120.25 * var(--axis-cell)) / 2));
+      --axis-left: calc(33 * var(--axis-cell));
+    }
+  }
+  .axis-stripe {
+    position: absolute; z-index: -1; inset-block: 0;
+    left: var(--axis-band-x); width: var(--axis-band-w);
+    background-color: var(--color-axis-band);
+    animation: var(--animate-axis-appear);
+  }
+
+  /* No text column is a whole number of cells wide at a common width (hence the quarter cells in
+     the measure and the gutters): a line that fits its column exactly wraps or not on sub-pixel
+     rounding. */
+  .axis-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: [band] var(--axis-band-w) [text] minmax(0, 1fr);
+    column-gap: var(--axis-cell);
+    padding-inline-end: calc(1.25 * var(--axis-cell));
+  }
+  .axis-row > .axis-left  { grid-column: text; grid-row: 1; min-width: 0; overflow-wrap: anywhere; }
+  .axis-row > .axis-key   { grid-column: band; grid-row: 2; align-self: start; justify-self: stretch; }
+  .axis-row > .axis-right { grid-column: text; grid-row: 2; min-width: 0; max-width: var(--axis-measure); overflow-wrap: anywhere; }
+  .axis-row > .axis-right:not(.axis-status), .axis-passage { text-wrap: pretty; }
+  .axis-row > .axis-ref   { grid-column: text; grid-row: 3; justify-self: start; align-self: start; }
+
+  @media (min-width: 48rem) {
+    .axis-row {
+      grid-template-columns:
+        [edge] var(--axis-edge) [ctx] var(--axis-left) [lgap] var(--axis-cell) [band] var(--axis-band-w)
+        [rgap] var(--axis-cell) [text] minmax(0, var(--axis-measure))
+        [end] minmax(calc(1.75 * var(--axis-cell)), 1fr);
+      column-gap: 0;
+      padding-inline-end: 0;
+    }
+    .axis-row > .axis-left {
+      grid-column: ctx; display: flex; justify-content: flex-end;
+      overflow: hidden; white-space: nowrap; overflow-wrap: normal;
+    }
+    .axis-row > .axis-wordmark { justify-content: flex-start; }
+    .axis-left-text { flex: none; } /* must not shrink: an over-long context overflows to the left and is clipped there */
+    .axis-row > .axis-key   { grid-row: 1; }
+    .axis-row > .axis-right { grid-row: 1; }
+    .axis-row > .axis-ref   { grid-row: 2; justify-self: end; }
+    .axis-line > .axis-right { white-space: nowrap; overflow: hidden; padding-inline-end: calc(13 * var(--axis-cell)); }
+    .axis-line > .axis-ref   { grid-row: 1; }
+  }
+  @media (min-width: 74rem) {
+    .axis-row {
+      grid-template-columns:
+        [edge] var(--axis-edge) [ctx] var(--axis-left) [lgap] var(--axis-cell) [band] var(--axis-band-w)
+        [rgap] var(--axis-cell) [text] minmax(0, var(--axis-measure))
+        [refgap] calc(2 * var(--axis-cell)) [ref] calc(11 * var(--axis-cell))
+        [end] minmax(calc(2 * var(--axis-cell)), 1fr);
+    }
+    .axis-row > .axis-ref    { grid-column: ref; grid-row: 1; justify-self: end; }
+    .axis-line > .axis-right { padding-inline-end: 0; }
+  }
+
+  .axis-key {
+    display: block; padding-inline: calc(1.25 * var(--axis-cell)) calc(0.75 * var(--axis-cell));
+    color: var(--color-axis-key); font-weight: 800; white-space: nowrap; text-align: start;
+  }
+  @media (min-width: 48rem) { .axis-key { padding-inline: var(--axis-cell); } }
+  .axis-ref { white-space: nowrap; }
+  .axis-context { transition: opacity 150ms linear; }
+  .axis-dim .axis-context { opacity: 0.6; }
+  .axis-title, .axis-own { font-weight: 700; }
+  .axis-title-line { display: block; min-height: 1.625em; }
+  .axis-wordmark {
+    font-size: calc(1em * var(--axis-key-scale));
+    line-height: calc(1.625em / var(--axis-key-scale));
+    font-weight: 800;
+  }
+  .axis-quiet { color: var(--color-axis-ref); }
+  .axis-hit {
+    background: none; color: inherit; font-weight: 700;
+    text-decoration: underline; text-decoration-color: var(--color-axis-band);
+    text-decoration-thickness: 0.125em; text-underline-offset: 0.2em;
+  }
+  .axis ::selection { color: var(--color-axis-key); background-color: var(--color-axis-band); }
+  .axis q { quotes: none; }
+  .axis q::before, .axis q::after { content: none; }
+  .axis-tally { display: none; }
+  @media (min-width: 74rem) { .axis-tally { display: block; } }
+
+  /* Columns are in cells of the base size, so a heading's scale goes on its cells, never on the row. */
+  .axis-head > .axis-key, .axis-subhead > .axis-key {
+    font-size: calc(1em * var(--axis-key-scale));
+    line-height: calc(1.625em / var(--axis-key-scale));
+    padding-inline: calc(1.25 * var(--axis-cell) / var(--axis-key-scale)) calc(0.75 * var(--axis-cell) / var(--axis-key-scale));
+  }
+  @media (min-width: 48rem) {
+    .axis-head > .axis-left, .axis-head > .axis-right {
+      font-size: calc(1em * var(--axis-head-scale));
+      line-height: calc(1.625em / var(--axis-head-scale));
+    }
+    .axis-head > .axis-key, .axis-subhead > .axis-key { padding-inline: calc(var(--axis-cell) / var(--axis-key-scale)); }
+  }
+  /* A larger key beside base-size text (a sub-heading; the headline below 48rem): the shorter
+     line lifts it onto that text's baseline (0.69em is the face's ascent less its descent). */
+  .axis-hero-row > .axis-key, .axis-subhead > .axis-key {
+    line-height: calc((1.625em - 0.69em * (var(--axis-key-scale) - 1)) / var(--axis-key-scale));
+  }
+  .axis-hero-row > .axis-key {
+    align-self: stretch; background-color: var(--color-axis-band);
+    animation: var(--animate-axis-appear);
+    animation-delay: calc(200ms + var(--axis-i) * 80ms);
+  }
+  @media (min-width: 48rem) {
+    .axis-hero-row {
+      padding-block: 1.625em;
+      --axis-from: calc(-1 * (var(--axis-left) - var(--axis-len) * var(--axis-head-scale) * var(--axis-cell)));
+      animation: var(--animate-axis-settle);
+      animation-delay: calc(350ms + var(--axis-i) * 60ms);
+    }
+    .axis-hero-row > .axis-key { line-height: calc(1.625em / var(--axis-key-scale)); animation: none; }
+  }
+
+  button.axis-key { cursor: pointer; }
+  .axis-word {
+    text-decoration: underline;
+    text-decoration-thickness: 0.0625em; text-underline-offset: 0.25em;
+  }
+  /* Hit areas are placed against the row, so button.axis-key and .axis-open must stay unpositioned. */
+  button.axis-key::after {
+    content: ""; position: absolute; z-index: 1; inset-block: 0;
+    left: var(--axis-band-x); width: var(--axis-band-w);
+  }
+  button.axis-key:active { background-color: var(--color-axis-band-deep); }
+  @media (hover: hover) {
+    button.axis-key:hover { background-color: var(--color-axis-band-deep); }
+  }
+  button.axis-key[aria-pressed="true"] { background-color: var(--color-axis-ink); }
+
+  .axis-link {
+    color: var(--color-axis-band); cursor: pointer; text-decoration: underline;
+    text-decoration-thickness: 0.0625em; text-underline-offset: 0.2em;
+  }
+  @media (hover: hover) { .axis-link:hover { text-decoration-thickness: 0.125em; } }
+  .axis-ref-link { position: relative; }
+  .axis-ref-link::after { content: ""; position: absolute; inset: -0.58em calc(-1 * var(--axis-cell)); }
+  .axis-open::after { content: ""; position: absolute; inset: 0; }
+  .axis-open:active::after { box-shadow: inset 0 -0.125rem 0 var(--color-axis-ink); }
+  @media (hover: hover) {
+    .axis-open:hover::after { box-shadow: inset 0 -0.125rem 0 var(--color-axis-ink); }
+  }
+  .axis-line { scroll-margin-block-start: calc(1.625em * 2); }
+
+  .axis-upload {
+    position: relative; grid-column: band / -1; grid-row: 1;
+    display: grid; grid-template-columns: var(--axis-band-w) var(--axis-cell) minmax(0, 1fr);
+    grid-template-rows: 1.625em 1.625em; margin-inline-end: calc(-1.25 * var(--axis-cell));
+    line-height: 1.625em; font-weight: 800; text-align: start; cursor: pointer;
+    background-color: var(--color-axis-paper);
+  }
+  .axis-upload::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    box-shadow: inset 0 0 0 0.125rem var(--color-axis-ink);
+  }
+  .axis-upload-lead, .axis-upload-key { font-size: calc(1em * var(--axis-key-scale)); }
+  .axis-upload-key {
+    grid-column: 1; grid-row: 1 / 3; display: flex; align-items: flex-end;
+    padding-inline: calc(1.25 * var(--axis-cell) / var(--axis-key-scale)) calc(0.75 * var(--axis-cell) / var(--axis-key-scale));
+    color: var(--color-axis-key); background-color: var(--color-axis-band);
+  }
+  .axis-upload-lead { grid-column: 3; grid-row: 1; }
+  .axis-upload:active { background-color: var(--color-axis-ink); color: var(--color-axis-key); }
+  .axis-upload:active .axis-upload-key { background-color: var(--color-axis-band-deep); }
+  @media (hover: hover) {
+    .axis-upload:hover { background-color: var(--color-axis-ink); color: var(--color-axis-key); }
+    .axis-upload:hover .axis-upload-key { background-color: var(--color-axis-band-deep); }
+  }
+  @media (min-width: 48rem) {
+    .axis-upload {
+      grid-column: ctx / rgap; justify-self: end; align-self: start;
+      display: flex; margin: 0.8125em 0 0; line-height: 3.25em;
+    }
+    .axis-upload-lead { padding-inline: calc(2 * var(--axis-cell) / var(--axis-key-scale)) calc(var(--axis-cell) / var(--axis-key-scale)); }
+    .axis-upload-key {
+      display: block; flex: 0 0 calc(var(--axis-band-w) / var(--axis-key-scale));
+      padding-inline: calc(var(--axis-cell) / var(--axis-key-scale));
+    }
+  }
+
+  /* The reserve is the longest message at each form's narrowest column: a file's name on two
+     lines where the column is short, on one from 64rem. */
+  .axis-status { padding-block-start: 1.625em; min-height: calc(1.625em * 8); }
+  .axis-status-name {
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+    overflow: hidden; overflow-wrap: anywhere; font-weight: 700;
+  }
+  @media (min-width: 48rem) { .axis-status { min-height: calc(1.625em * 7); } }
+  @media (min-width: 64rem) {
+    .axis-status { min-height: calc(1.625em * 5); }
+    .axis-status-name { display: block; text-overflow: ellipsis; white-space: nowrap; }
+  }
+
+  .axis-passage-row > .axis-passage {
+    grid-column: text; grid-row: 1; min-width: 0; max-width: var(--axis-measure);
+    padding-block-end: 1.625em; font-style: italic;
+    animation: axis-appear 150ms linear backwards;
+  }
+  .axis-passage > footer { font-style: normal; }
+
+  .axis-readout {
+    position: fixed; z-index: 10; inset-inline: 0; bottom: 0;
+    padding-block: 0.8125em calc(0.8125em + env(safe-area-inset-bottom));
+    background-color: var(--color-axis-paper);
+    background-image: linear-gradient(to right,
+      transparent var(--axis-band-x), var(--color-axis-band) var(--axis-band-x),
+      var(--color-axis-band) calc(var(--axis-band-x) + var(--axis-band-w)),
+      transparent calc(var(--axis-band-x) + var(--axis-band-w)));
+    box-shadow: 0 -0.125rem 0 var(--color-axis-ink);
+    transform: translateY(calc(100% + 0.125rem)); visibility: hidden;
+    transition: transform 200ms var(--ease-axis-settle), visibility 0s linear 200ms;
+  }
+  .axis-readout[data-open="true"] { transform: translateY(0); visibility: visible; transition-delay: 0s; }
+  .axis-release {
+    display: block; font-weight: 400; cursor: pointer; text-decoration: underline;
+    text-decoration-thickness: 0.0625em; text-underline-offset: 0.25em;
+  }
+
+  .axis-skip {
+    position: absolute; z-index: 20; top: 0.5rem; left: var(--axis-cell); padding-inline: var(--axis-cell); line-height: 3.25em;
+    background-color: var(--color-axis-paper); transform: translateY(calc(-100% - 1rem));
+  }
+  .axis-skip:focus-visible { transform: translateY(0); }
+
+  .axis-masthead { padding-block-start: 1.625em; }
+  .axis-hero { padding-block-start: 1.625em; }
+  .axis-upload-row { padding-block-start: 1.625em; }
+  @media (min-width: 48rem) {
+    .axis-masthead-row { min-height: calc(1.625em * 2); }
+    .axis-hero { padding-block-start: 0; }
+    .axis-upload-row { padding-block-start: 0; }
+  }
+  .axis-section { padding-block-start: 1.625em; }
+  .axis-section--closing { padding-block-start: calc(1.625em * 2); }
+  @media (min-width: 48rem) {
+    .axis-section { padding-block-start: calc(1.625em * 2); }
+    .axis-section--closing { padding-block-start: calc(1.625em * 3); }
+  }
+  /* What follows an upload row starts at once: the blank lines kept for its status are the gap. */
+  .axis-section--flush { padding-block-start: 0; }
+  .axis-section-head, .axis-gap-1, .axis-list { padding-block-start: 1.625em; }
+  .axis-list--apart > li + li { padding-block-start: 1.625em; }
+  .axis-colophon { padding-block: 1.625em calc(1.625em * 6); }
+
+  .axis :focus-visible { outline: 0.1875rem solid var(--color-axis-ink); outline-offset: 0.125rem; }
+  .axis button.axis-key:focus-visible { outline-color: var(--color-axis-key); outline-offset: -0.1875rem; }
+  .axis .axis-release:focus-visible { outline-color: var(--color-axis-key); }
+  .axis .axis-upload:focus-visible { outline-offset: -0.5rem; }
+  .axis section:focus-visible, .axis .axis-line:focus-visible { outline-offset: -0.1875rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .axis-stripe, .axis-hero-row, .axis-hero-row > .axis-key, .axis-passage-row > .axis-passage { animation: none; }
+    .axis-readout { transition: none; }
+  }
+}

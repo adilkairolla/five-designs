@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@import "./pages/brackets/brackets.css";
+@import "./pages/jacket/jacket.css";
+@import "./pages/clock/clock.css";
+@import "./pages/axis/axis.css";
+@import "./pages/primer/primer.css";
